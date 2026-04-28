@@ -73,14 +73,14 @@
         var authRequiredEl = document.getElementById('orders-auth-required');
         var filtersEl = document.getElementById('orders-filters');
 
-        if (!(auth && auth.requireSession && auth.requireSession())) {
+        @if(!auth()->check())
             authRequiredEl.classList.remove('hidden');
             filtersEl.classList.add('hidden');
             listEl.classList.add('hidden');
             emptyEl.classList.add('hidden');
             countEl.textContent = 'Login required';
             return;
-        }
+        @endif
 
         function mapStatus(status) {
             var label = ordersService && ordersService.statusLabel ? ordersService.statusLabel(status, 'en') : (status.charAt(0).toUpperCase() + status.slice(1));

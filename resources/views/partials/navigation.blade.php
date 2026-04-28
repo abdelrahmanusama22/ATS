@@ -56,35 +56,15 @@
         </div>
         <div class="flex-1 overflow-y-auto py-8">
             <nav class="px-6 space-y-1">
-                <a href="{{ route('home') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['/', 'index.html'], $currentPath) }} {{ navActiveClass(['/', 'index.html'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    <span>{{ $lang['home'] }}</span>
-                </a>
-                <a href="{{ route('catalog') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['catalog'], $currentPath) }} {{ navActiveClass(['catalog'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    <span>{{ $lang['products'] }}</span>
-                </a>
-                <a href="{{ route('solutions') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['solutions'], $currentPath) }} {{ navActiveClass(['solutions'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <span>{{ $lang['solutions'] }}</span>
-                </a>
-                <a href="{{ route('services') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['services'], $currentPath) }} {{ navActiveClass(['services'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1-1v3"/><path d="M12 12V8"/></svg>
-                    <span>{{ $lang['services'] }}</span>
-                </a>
-                <div class="h-px bg-gray-border/50 my-4 mx-4"></div>
-                <a href="{{ route('about') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['about'], $currentPath) }} {{ navActiveClass(['about'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    <span>{{ $lang['about'] }}</span>
-                </a>
-                <a href="{{ route('contact') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['contact'], $currentPath) }} {{ navActiveClass(['contact'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    <span>{{ $lang['contact'] }}</span>
-                </a>
-                <a href="{{ route('account') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['account'], $currentPath) }} {{ navActiveClass(['account'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
-                    <span>{{ $lang['myAccount'] }}</span>
-                </a>
+                @if(isset($mainMenu) && $mainMenu)
+                    @foreach($mainMenu->items as $item)
+                        @php $urlPath = ltrim(parse_url($item->url ?? '#', PHP_URL_PATH), '/'); @endphp
+                        <a href="{{ $item->url ?? route('page.show', $item->page?->slug ?? '#') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass([$urlPath], $currentPath) }} {{ navActiveClass([$urlPath], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M16 8v8"/></svg>
+                            <span>{{ $item->title }}</span>
+                        </a>
+                    @endforeach
+                @endif
                 <a href="{{ route('orders') }}" class="flex items-center gap-4 py-4 px-4 rounded-xl {{ navActiveClass(['orders', 'order-detail', 'tracking'], $currentPath) }} {{ navActiveClass(['orders', 'order-detail', 'tracking'], $currentPath) === 'text-primary' ? 'bg-red-50 font-bold' : 'hover:bg-gray-50' }} transition-all">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                     <span>{{ $lang['myOrders'] }}</span>

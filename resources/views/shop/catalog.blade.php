@@ -9,9 +9,9 @@
         <aside class="hidden lg:block w-[260px] flex-shrink-0">
             <!-- Breadcrumbs -->
             <div class="flex items-center gap-2 text-[13px] text-gray-body mb-8">
-                <a href="{{ route('home') }}" class="hover:text-dark">Home</a>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-                <span class="text-dark font-medium">All Products</span>
+                <a href="{{ route('home') }}" class="text-gray-body hover:text-dark transition-colors">{{ $contentBlocks['catalog_breadcrumbs_home']->content ?? 'Home' }}</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-400"><path d="m9 18 6-6-6-6"/></svg>
+                <span class="text-dark font-medium">{{ $contentBlocks['catalog_breadcrumbs_current']->content ?? 'All Products' }}</span>
             </div>
 
             <!-- Filters Header -->
@@ -27,84 +27,26 @@
             <div class="mb-10">
                 <h3 class="font-semibold text-[14px] mb-4">Categories</h3>
                 <ul class="space-y-3 pl-0 relative">
+                    @foreach($categories as $category)
                     <li>
                         <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
                             <div class="flex items-center gap-3">
-                                <input type="checkbox" class="sr-only filter-input" value="Networking Equipment">
+                                <input type="checkbox" class="sr-only filter-input" value="{{ $category->name }}">
                                 <div class="custom-checkbox">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
                                 </div>
-                                <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Networking Equipment</span>
+                                <span class="text-[14px] text-dark group-hover:text-primary transition-colors">{{ $category->name }}</span>
                             </div>
-                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">124</span>
+                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">{{ $category->products_count }}</span>
                         </label>
                     </li>
-                    <li>
-                        <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                            <div class="flex items-center gap-3">
-                                <input type="checkbox" class="sr-only filter-input" value="Servers & Storage">
-                                <div class="custom-checkbox">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                </div>
-                                <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Servers & Storage</span>
-                            </div>
-                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">58</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                            <div class="flex items-center gap-3">
-                                <input type="checkbox" class="sr-only filter-input" value="Business Laptops">
-                                <div class="custom-checkbox">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                </div>
-                                <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Business Laptops</span>
-                            </div>
-                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">210</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                            <div class="flex items-center gap-3">
-                                <input type="checkbox" class="sr-only filter-input" value="Security & CCTV">
-                                <div class="custom-checkbox">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                </div>
-                                <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Security & CCTV</span>
-                            </div>
-                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">85</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                            <div class="flex items-center gap-3">
-                                <input type="checkbox" class="sr-only filter-input" value="Office Peripherals">
-                                <div class="custom-checkbox">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                </div>
-                                <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Office Peripherals</span>
-                            </div>
-                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">342</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                            <div class="flex items-center gap-3">
-                                <input type="checkbox" class="sr-only filter-input" value="Software Licenses">
-                                <div class="custom-checkbox">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                </div>
-                                <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Software Licenses</span>
-                            </div>
-                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">45</span>
-                        </label>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
 
             <!-- Price Range Section -->
-            <div class="mb-10 pt-6 border-t border-gray-border">
-                <h3 class="font-semibold text-[14px] mb-6">Price (EGP)</h3>
+            <div class="mb-8">
+                <h3 class="text-[14px] font-bold text-dark mb-4 uppercase tracking-wider">{{ $contentBlocks['catalog_price_title']->content ?? 'Price (EGP)' }}</h3>
                 
                 <!-- Dual Range Slider -->
                 <div class="relative h-6 mb-6 px-0 price-slider-container" id="price-slider-container">
@@ -134,7 +76,7 @@
             <!-- Brands Section -->
             <div class="mb-6 pt-6 border-t border-gray-border">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-semibold text-[14px]">Brands</h3>
+                    <h3 class="text-[14px] font-bold text-dark mb-4 uppercase tracking-wider">{{ $contentBlocks['catalog_brands_title']->content ?? 'Brands' }}</h3>
                     <button class="text-gray-body hover:text-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
                 </div>
                 <ul class="space-y-3 pl-0">
@@ -206,66 +148,20 @@
                 <div>
                    <h4 class="font-bold text-[14px] mb-4">Categories</h4>
                    <ul class="space-y-4">
+                       @foreach($categories as $category)
                        <li>
                            <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
                                <div class="flex items-center gap-3">
-                                   <input type="checkbox" class="sr-only filter-input" value="Networking Equipment">
+                                   <input type="checkbox" class="sr-only filter-input" value="{{ $category->name }}">
                                    <div class="custom-checkbox">
                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
                                    </div>
-                                   <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Networking Equipment</span>
+                                   <span class="text-[14px] text-dark group-hover:text-primary transition-colors">{{ $category->name }}</span>
                                </div>
-                               <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">124</span>
+                               <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">{{ $category->products_count }}</span>
                            </label>
                        </li>
-                       <li>
-                           <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                               <div class="flex items-center gap-3">
-                                   <input type="checkbox" class="sr-only filter-input" value="Servers & Storage">
-                                   <div class="custom-checkbox">
-                                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                   </div>
-                                   <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Servers & Storage</span>
-                               </div>
-                               <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">58</span>
-                           </label>
-                       </li>
-                       <li>
-                           <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                               <div class="flex items-center gap-3">
-                                   <input type="checkbox" class="sr-only filter-input" value="Business Laptops">
-                                   <div class="custom-checkbox">
-                                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                   </div>
-                                   <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Business Laptops</span>
-                               </div>
-                               <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">210</span>
-                           </label>
-                       </li>
-                       <li>
-                           <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                               <div class="flex items-center gap-3">
-                                   <input type="checkbox" class="sr-only filter-input" value="Security & CCTV">
-                                   <div class="custom-checkbox">
-                                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                   </div>
-                                   <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Security & CCTV</span>
-                               </div>
-                               <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">85</span>
-                           </label>
-                       </li>
-                       <li>
-                           <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
-                               <div class="flex items-center gap-3">
-                                   <input type="checkbox" class="sr-only filter-input" value="Office Peripherals">
-                                   <div class="custom-checkbox">
-                                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                                   </div>
-                                   <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Office Peripherals</span>
-                               </div>
-                               <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">342</span>
-                           </label>
-                       </li>
+                       @endforeach
                    </ul>
                 </div>
 
@@ -329,9 +225,10 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="p-6 border-t border-gray-border bg-white">
-                <button class="w-full bg-primary text-white py-4 rounded-xl font-bold shadow-lg shadow-primary/20">Apply Filters</button>
+                
+                <div class="pt-4 border-t border-gray-border">
+                    <button id="applyFiltersBtn" class="w-full h-10 bg-primary text-white text-[13px] font-bold rounded hover:bg-[#C4182A] transition-colors shadow-sm">{{ $contentBlocks['catalog_apply_filters']->content ?? 'Apply Filters' }}</button>
+                </div>
             </div>
         </div>
 
@@ -340,7 +237,7 @@
             <!-- Toolbar -->
             <div class="hidden lg:flex bg-white border border-gray-border rounded-lg px-4 py-3 mb-8 shadow-sm items-center justify-between gap-4">
                 <div class="flex items-center flex-wrap gap-2 text-[13px]">
-                    <span id="catalog-toolbar-count" class="text-gray-body font-space">Showing <strong class="text-dark">1-9</strong> of <strong class="text-dark">243</strong> products</span>
+                    <span id="catalog-toolbar-count" class="text-gray-body font-space">Showing <strong class="text-dark">{{ $products->firstItem() ?? 0 }}-{{ $products->lastItem() ?? 0 }}</strong> of <strong class="text-dark">{{ $products->total() }}</strong> products</span>
 
                     <div class="h-4 w-px bg-gray-border mx-1"></div>
                     
@@ -354,7 +251,7 @@
                 </div>
 
                 <div class="flex items-center gap-2 text-[13px]">
-                    <span class="text-gray-body whitespace-nowrap">Sort by:</span>
+                    <span class="text-gray-body whitespace-nowrap">{{ $contentBlocks['catalog_sort_title']->content ?? 'Sort By' }}:</span>
                     <div class="relative">
                         <select id="catalog-sort-select" class="appearance-none bg-white border border-gray-border rounded-md pl-3 pr-8 py-1.5 focus:outline-none focus:border-primary text-dark font-medium shadow-sm min-w-[140px]">
                             <option>Featured</option>
@@ -371,205 +268,56 @@
 
             <!-- Product Grid -->
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6 mb-10">
-                <!-- Product Card 1 -->
-                <div data-href="{{ route('product') }}" data-brand="Lenovo" data-price="68500" data-category="Business Laptops" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card">
-                    <div class="absolute top-0 left-4 bg-primary text-white text-[11px] font-bold px-2 py-1 rounded-b-md z-10 shadow-sm">Sale</div>
+                @forelse($products as $product)
+                <!-- Product Card -->
+                <div data-href="{{ route('product.show', $product->id) }}" data-brand="{{ $product->brand ?? 'Unknown' }}" data-price="{{ $product->price }}" data-category="{{ $product->category->name ?? 'Uncategorized' }}" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card" onclick="window.location.href=this.dataset.href">
+                    @if($product->sale_price)
+                    <div class="absolute top-0 left-4 bg-primary text-white text-[11px] font-bold px-2 py-1 rounded-b-md z-10 shadow-sm">{{ __('Sale') }}</div>
+                    @endif
                     <div class="bg-gray-light p-6 aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-                        <img src="{{ asset('assets/images/downloaded/photo_1588872657578_7efd1f1555ed.jpg') }}" alt="Lenovo ThinkPad" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
+                        <img src="{{ $product->getFirstMediaUrl('default') ?: asset('assets/images/placeholder.jpg') }}" alt="{{ $product->title }}" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <div class="flex justify-between items-start mb-2">
-                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">LENOVO</span>
+                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">{{ $product->brand ?? 'ATS' }}</span>
                             <div class="flex items-center gap-1 text-[12px] text-gray-body">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" class="fill-[#F59E0B]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                4.8
+                                5.0
                             </div>
                         </div>
-                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">ThinkPad X1 Carbon Gen 11 - 14" WUXGA, i7-1355U, 16GB RAM, 512GB</h3>
+                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">{{ $product->title }}</h3>
                         
                         <div class="mt-auto flex items-end justify-between">
                             <div>
-                                <p class="text-[12px] text-gray-400 line-through mb-0.5">72,000 EGP</p>
-                                <p class="font-bold text-[18px]">68,500 <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
+                                @if($product->sale_price)
+                                <p class="text-[12px] text-gray-400 line-through mb-0.5">{{ number_format($product->price) }} EGP</p>
+                                <p class="font-bold text-[18px]">{{ number_format($product->sale_price) }} <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
+                                @else
+                                <p class="font-bold text-[18px]">{{ number_format($product->price) }} <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
+                                @endif
                             </div>
                             <button class="w-9 h-9 border border-gray-border rounded bg-white flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm z-20 text-dark add-to-cart-btn"
-                                data-id="1" 
-                                data-name="ThinkPad X1 Carbon Gen 11" 
-                                data-price="68500" 
-                                data-image="{{ asset('assets/images/downloaded/photo_1588872657578_7efd1f1555ed.jpg') }}">
+                                data-id="{{ $product->id }}" 
+                                data-name="{{ $product->title }}" 
+                                data-price="{{ $product->sale_price ?: $product->price }}" 
+                                data-image="{{ $product->getFirstMediaUrl('default') ?: asset('assets/images/placeholder.jpg') }}"
+                                onclick="event.stopPropagation();">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
                             </button>
                         </div>
                     </div>
-                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">In Stock & Ready to Ship</div>
+                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">{{ $product->stock_status ?? 'In Stock & Ready to Ship' }}</div>
                 </div>
-
-                <!-- Product Card 2 -->
-                <div data-href="{{ route('product') }}" data-brand="Cisco" data-price="32400" data-category="Networking Equipment" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card">
-                    <div class="bg-[#FAFAFB] p-6 aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-                        <img src="{{ asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}" alt="Meraki AP" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">CISCO</span>
-                            <div class="flex items-center gap-1 text-[12px] text-gray-body">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" class="fill-[#F59E0B]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                4.9
-                            </div>
-                        </div>
-                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">Meraki MR46 Wi-Fi 6 Indoor Access Point (Cloud Managed)</h3>
-                        
-                        <div class="mt-auto flex items-end justify-between">
-                            <div>
-                                <p class="font-bold text-[18px]">32,400 <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
-                            </div>
-                            <button class="w-9 h-9 border border-gray-border rounded bg-white flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm z-20 text-dark add-to-cart-btn"
-                                data-id="2"
-                                data-name="Meraki MR46 Wi-Fi 6 Indoor Access Point"
-                                data-price="32400"
-                                data-image="{{ asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">In Stock & Ready to Ship</div>
+                @empty
+                <div class="col-span-full py-12 text-center text-gray-body">
+                    {{ __('No products found matching your criteria.') }}
                 </div>
-
-                <!-- Product Card 3 -->
-                <div data-href="{{ route('product') }}" data-brand="Dell Technologies" data-price="185000" data-category="Servers & Storage" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card">
-                    <div class="bg-[#FAFAFB] p-6 aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-                        <img src="{{ asset('assets/images/downloaded/photo_1591799264318_7e6ef8ddb7ea.jpg') }}" alt="Server" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">DELL TECHNOLOGIES</span>
-                            <div class="flex items-center gap-1 text-[12px] text-gray-body">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" class="fill-[#F59E0B]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                4.7
-                            </div>
-                        </div>
-                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">PowerEdge R750 Rack Server - 2x Xeon Silver, 64GB RAM, 4x 1.2TB HDD</h3>
-                        
-                        <div class="mt-auto flex items-end justify-between">
-                            <div>
-                                <p class="font-bold text-[18px]">185,000 <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
-                            </div>
-                            <button class="w-9 h-9 border border-gray-border rounded bg-white flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm z-20 text-dark add-to-cart-btn"
-                                data-id="3"
-                                data-name="PowerEdge R750 Rack Server"
-                                data-price="185000"
-                                data-image="{{ asset('assets/images/downloaded/photo_1591799264318_7e6ef8ddb7ea.jpg') }}">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-gray-body font-medium bg-white">Usually ships in 2-3 weeks</div>
-                </div>
-
-                <!-- Product Card 4 -->
-                <div data-href="{{ route('product') }}" data-brand="Ubiquiti Networks" data-price="18900" data-category="Networking Equipment" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card">
-                    <div class="bg-[#FAFAFB] p-6 aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-                        <img src="{{ asset('assets/images/downloaded/photo_1544197150_b99a580bb7a8.jpg') }}" alt="UDM Pro" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">UBIQUITI NETWORKS</span>
-                            <div class="flex items-center gap-1 text-[12px] text-gray-body">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" class="fill-[#F59E0B]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                4.6
-                            </div>
-                        </div>
-                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">UniFi Dream Machine Pro - All-in-one Enterprise Security Gateway</h3>
-                        
-                        <div class="mt-auto flex items-end justify-between">
-                            <div>
-                                <p class="font-bold text-[18px]">18,900 <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
-                            </div>
-                            <button class="w-9 h-9 border border-gray-border rounded bg-white flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm z-20 text-dark add-to-cart-btn"
-                                data-id="4"
-                                data-name="UniFi Dream Machine Pro"
-                                data-price="18900"
-                                data-image="{{ asset('assets/images/downloaded/photo_1544197150_b99a580bb7a8.jpg') }}">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">In Stock & Ready to Ship</div>
-                </div>
-
-                <!-- Product Card 5 -->
-                <div data-href="{{ route('product') }}" data-brand="HP Enterprise" data-price="45600" data-category="Networking Equipment" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card">
-                    <div class="bg-[#FAFAFB] p-6 aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-                        <img src="{{ asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}" alt="Aruba Switch" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">HP ENTERPRISE</span>
-                            <div class="flex items-center gap-1 text-[12px] text-gray-body">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" class="fill-[#F59E0B]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                4.5
-                            </div>
-                        </div>
-                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">Aruba 2930F 48G PoE+ 4SFP Switch (JL262A)</h3>
-                        
-                        <div class="mt-auto flex items-end justify-between">
-                            <div>
-                                <p class="font-bold text-[18px]">45,600 <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
-                            </div>
-                            <button class="w-9 h-9 border border-gray-border rounded bg-white flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm z-20 text-dark add-to-cart-btn"
-                                data-id="5"
-                                data-name="Aruba 2930F 48G PoE+ Switch"
-                                data-price="45600"
-                                data-image="{{ asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">In Stock & Ready to Ship</div>
-                </div>
-
-                <!-- Product Card 6 -->
-                <div data-href="{{ route('product') }}" data-brand="APC by Schneider" data-price="24500" data-category="Office Peripherals" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card">
-                    <div class="bg-[#FAFAFB] p-6 aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-                        <img src="{{ asset('assets/images/downloaded/photo_1544197150_b99a580bb7a8.jpg') }}" alt="UPS" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">APC BY SCHNEIDER</span>
-                            <div class="flex items-center gap-1 text-[12px] text-gray-body">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" class="fill-[#F59E0B]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                4.9
-                            </div>
-                        </div>
-                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">Smart-UPS 1500VA LCD 230V with SmartConnect</h3>
-                        
-                        <div class="mt-auto flex items-end justify-between">
-                            <div>
-                                <p class="font-bold text-[18px]">24,500 <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
-                            </div>
-                            <button class="w-9 h-9 border border-gray-border rounded bg-white flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm z-20 text-dark add-to-cart-btn"
-                                data-id="6"
-                                data-name="Smart-UPS 1500VA LCD 230V"
-                                data-price="24500"
-                                data-image="{{ asset('assets/images/downloaded/photo_1544197150_b99a580bb7a8.jpg') }}">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">In Stock & Ready to Ship</div>
-                </div>
-
+                @endforelse
             </div>
 
             <!-- Pagination -->
-            <div class="flex items-center justify-center gap-2 border-t border-gray-border pt-10">
-                <button class="px-3 py-1.5 text-[13px] text-gray-body hover:text-dark font-medium bg-white rounded border border-transparent mr-2">Previous</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-white font-medium text-[13px] box-shadow">1</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded text-dark font-medium text-[13px] hover:bg-gray-light">2</button>
-                <button class="w-8 h-8 flex items-center justify-center rounded text-dark font-medium text-[13px] hover:bg-gray-light">3</button>
-                <span class="w-8 h-8 flex items-center justify-center text-gray-body">...</span>
-                <button class="w-8 h-8 flex items-center justify-center rounded text-dark font-medium text-[13px] hover:bg-gray-light">27</button>
-                <button class="px-3 py-1.5 text-[13px] text-dark font-medium bg-white border border-gray-border rounded hover:bg-gray-50 ml-2 shadow-sm">Next</button>
+            <div class="mt-8 flex justify-center">
+                {{ $products->links() }}
             </div>
         </main>
     </div>

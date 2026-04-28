@@ -14,11 +14,11 @@
                 </div>
                 
                 <h1 class="font-space font-bold text-[48px] md:text-[60px] leading-[1.1] md:leading-[78px] tracking-[-1.5px] text-dark">
-                    Architecting the <span class="text-primary">Future</span> of Enterprise IT
+                    {!! $contentBlocks['about_hero_title']->content ?? 'Architecting the <span class="text-primary">Future</span> of Enterprise IT' !!}
                 </h1>
                 
                 <p class="text-[18px] text-gray-body leading-[29px] max-w-[578px]">
-                    At ATS Alex Technology Systems, we don't just supply technology; we build the resilient, scalable foundations that empower modern businesses to thrive in a digital-first world.
+                    {{ $contentBlocks['about_hero_desc']->content ?? "At ATS Alex Technology Systems, we don't just supply technology; we build the resilient, scalable foundations that empower modern businesses to thrive in a digital-first world." }}
                 </p>
                 
                 <div class="flex flex-wrap items-center gap-4">
@@ -34,8 +34,9 @@
 
             <!-- Right Visual -->
             <div class="relative w-full h-[300px] md:h-[492px]">
-                <div class="w-full h-full border border-gray-border rounded-[16px] overflow-hidden">
-                    <img src="{{ asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}" alt="Server room" class="w-full h-full object-cover">
+                <div class="h-[40vh] md:h-[60vh] bg-dark relative flex items-center justify-center overflow-hidden rounded-[16px]">
+                    <img src="{{ isset($contentBlocks['about_hero_image']) && $contentBlocks['about_hero_image']->hasMedia('default') ? $contentBlocks['about_hero_image']->getFirstMediaUrl('default') : asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}" alt="Server room" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-dark/60"></div>
                 </div>
                 
                 <!-- Floating Card -->
@@ -57,34 +58,29 @@
     <section class="max-w-[1440px] mx-auto border-y border-gray-border bg-gray-light mt-10">
         <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-border">
             <div class="py-12 flex flex-col items-center justify-center">
-                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>15+</div>
-                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">Years of Excellence</div>
+                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>{{ $contentBlocks['about_stat_1_val']->content ?? '15+' }}</div>
+                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">{{ $contentBlocks['about_stat_1_lbl']->content ?? 'Years of Excellence' }}</div>
             </div>
             <div class="py-12 flex flex-col items-center justify-center">
-                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>450+</div>
-                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">Enterprise Clients</div>
+                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>{{ $contentBlocks['about_stat_2_val']->content ?? '450+' }}</div>
+                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">{{ $contentBlocks['about_stat_2_lbl']->content ?? 'Enterprise Clients' }}</div>
             </div>
             <div class="py-12 flex flex-col items-center justify-center">
-                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>99.9%</div>
-                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">Service Uptime</div>
+                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>{{ $contentBlocks['about_stat_3_val']->content ?? '99.9%' }}</div>
+                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">{{ $contentBlocks['about_stat_3_lbl']->content ?? 'Service Uptime' }}</div>
             </div>
             <div class="py-12 flex flex-col items-center justify-center">
-                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>24/7</div>
-                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">Dedicated Support</div>
+                <div class="font-space font-bold text-[48px] text-primary leading-[48px]" data-counter>{{ $contentBlocks['about_stat_4_val']->content ?? '24/7' }}</div>
+                <div class="font-medium text-[16px] text-gray-body leading-[24px] mt-2">{{ $contentBlocks['about_stat_4_lbl']->content ?? 'Dedicated Support' }}</div>
             </div>
         </div>
     </section>
 
     <!-- Our Journey -->
     <section class="max-w-[1440px] mx-auto px-6 py-24 text-center">
-        <h2 class="font-space font-bold text-[30px] leading-[36px] text-dark mb-6">Our Journey</h2>
-        <div class="max-w-[758px] mx-auto space-y-6">
-            <p class="text-[18px] text-gray-body leading-[29px]">
-                Founded on the principle that robust technology should be an enabler, not a bottleneck, ATS has grown from a specialized hardware vendor into a premier, full-suite IT solutions provider.
-            </p>
-            <p class="text-[18px] text-gray-body leading-[29px]">
-                We recognized early on that businesses needed more than just equipment; they needed strategic partnerships. Our approach integrates cutting-edge products with deep engineering expertise, ensuring that every solution we deploy is secure, scalable, and perfectly aligned with our clients' business objectives.
-            </p>
+        <h2 class="font-space font-bold text-[30px] leading-[36px] text-dark mb-6">{{ $contentBlocks['about_journey_title']->content ?? 'Our Journey' }}</h2>
+        <div class="max-w-[758px] mx-auto space-y-6 prose prose-lg text-gray-body">
+            {!! $contentBlocks['about_journey_content']->content ?? '<p>Founded on the principle that robust technology should be an enabler, not a bottleneck, ATS has grown from a specialized hardware vendor into a premier, full-suite IT solutions provider.</p>' !!}
         </div>
     </section>
 
@@ -98,47 +94,16 @@
                 <div class="hidden md:block absolute top-[15px] left-0 w-full h-[2px] bg-gray-border"></div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-4 text-center relative z-10">
-                    
-                    <!-- 2008 -->
+                    @forelse($timelineEvents ?? [] as $event)
                     <div class="relative flex flex-col items-center">
                         <div class="w-[32px] h-[32px] rounded-full bg-primary flex items-center justify-center mb-6 border-[10px] border-white relative z-10 shadow-sm mx-auto"></div>
-                        <h3 class="font-space font-bold text-[20px] mb-1">2008</h3>
-                        <div class="font-space font-medium text-[14px] text-dark mb-2">Foundation</div>
-                        <p class="text-[12px] text-gray-body max-w-[191px] mx-auto">ATS established with a focus on local IT hardware supply.</p>
+                        <h3 class="font-space font-bold text-[20px] mb-1">{{ $event->year }}</h3>
+                        <div class="font-space font-medium text-[14px] text-dark mb-2">{{ $event->title }}</div>
+                        <p class="text-[12px] text-gray-body max-w-[191px] mx-auto">{{ $event->description }}</p>
                     </div>
-                    
-                    <!-- 2012 -->
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-[32px] h-[32px] rounded-full bg-primary flex items-center justify-center mb-6 border-[10px] border-white relative z-10 shadow-sm mx-auto"></div>
-                        <h3 class="font-space font-bold text-[20px] mb-1">2012</h3>
-                        <div class="font-space font-medium text-[14px] text-dark mb-2">Enterprise Solutions</div>
-                        <p class="text-[12px] text-gray-body max-w-[182px] mx-auto">Expanded into comprehensive network and server infrastructure.</p>
-                    </div>
-
-                    <!-- 2016 -->
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-[32px] h-[32px] rounded-full bg-primary flex items-center justify-center mb-6 border-[10px] border-white relative z-10 shadow-sm mx-auto"></div>
-                        <h3 class="font-space font-bold text-[20px] mb-1">2016</h3>
-                        <div class="font-space font-medium text-[14px] text-dark mb-2">Managed Services</div>
-                        <p class="text-[12px] text-gray-body max-w-[155px] mx-auto">Launched 24/7 NOC and proactive IT management division.</p>
-                    </div>
-
-                    <!-- 2020 -->
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-[32px] h-[32px] rounded-full bg-primary flex items-center justify-center mb-6 border-[10px] border-white relative z-10 shadow-sm mx-auto"></div>
-                        <h3 class="font-space font-bold text-[20px] mb-1">2020</h3>
-                        <div class="font-space font-medium text-[14px] text-dark mb-2">Cloud & Security</div>
-                        <p class="text-[12px] text-gray-body max-w-[197px] mx-auto">Introduced enterprise cloud migration and zero-trust security practices.</p>
-                    </div>
-
-                    <!-- 2024 -->
-                    <div class="relative flex flex-col items-center">
-                        <div class="w-[32px] h-[32px] rounded-full bg-primary flex items-center justify-center mb-6 border-[10px] border-white relative z-10 shadow-sm mx-auto"></div>
-                        <h3 class="font-space font-bold text-[20px] mb-1">2024</h3>
-                        <div class="font-space font-medium text-[14px] text-dark mb-2">Global Reach</div>
-                        <p class="text-[12px] text-gray-body max-w-[194px] mx-auto">Serving Fortune 500 clients with advanced AI and automation integrations.</p>
-                    </div>
-
+                    @empty
+                    <div class="col-span-full text-center text-gray-body">Timeline events are currently being updated.</div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -152,41 +117,21 @@
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <!-- Cert 1 -->
+            @forelse($certifications ?? [] as $cert)
             <div class="bg-white border border-gray-border rounded-[10px] p-6 flex flex-col items-center">
-                <div class="w-[64px] h-[64px] rounded-full bg-gray-light flex items-center justify-center mb-6 text-primary">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div class="w-[64px] h-[64px] rounded-full bg-gray-light flex items-center justify-center mb-6 text-primary overflow-hidden">
+                    @if($cert->getFirstMediaUrl('default'))
+                        <img src="{{ $cert->getFirstMediaUrl('default') }}" alt="{{ $cert->title }}" class="w-full h-full object-contain">
+                    @else
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    @endif
                 </div>
-                <h3 class="font-space font-bold text-[18px] mb-1">ISO 27001</h3>
-                <div class="text-[14px] text-gray-body">Information Security</div>
+                <h3 class="font-space font-bold text-[18px] mb-1">{{ $cert->title }}</h3>
+                <div class="text-[14px] text-gray-body">{{ $cert->description }}</div>
             </div>
-
-            <!-- Cert 2 -->
-            <div class="bg-white border border-gray-border rounded-[10px] p-6 flex flex-col items-center">
-                <div class="w-[64px] h-[64px] rounded-full bg-gray-light flex items-center justify-center mb-6 text-primary">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                </div>
-                <h3 class="font-space font-bold text-[18px] mb-1">Cisco Gold</h3>
-                <div class="text-[14px] text-gray-body">Partner Certification</div>
-            </div>
-
-            <!-- Cert 3 -->
-            <div class="bg-white border border-gray-border rounded-[10px] p-6 flex flex-col items-center">
-                <div class="w-[64px] h-[64px] rounded-full bg-gray-light flex items-center justify-center mb-6 text-primary">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <h3 class="font-space font-bold text-[18px] mb-1">Microsoft</h3>
-                <div class="text-[14px] text-gray-body">Azure Advanced Specialization</div>
-            </div>
-
-            <!-- Cert 4 -->
-            <div class="bg-white border border-gray-border rounded-[10px] p-6 flex flex-col items-center">
-                <div class="w-[64px] h-[64px] rounded-full bg-gray-light flex items-center justify-center mb-6 text-primary">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                </div>
-                <h3 class="font-space font-bold text-[18px] mb-1">CompTIA</h3>
-                <div class="text-[14px] text-gray-body">Managed Services Trustmark</div>
-            </div>
+            @empty
+                <div class="col-span-full text-center text-gray-body">Certifications are currently being updated.</div>
+            @endforelse
         </div>
     </section>
 
@@ -198,12 +143,17 @@
         </p>
         
         <div class="flex flex-wrap items-center justify-center gap-6 opacity-70">
-            <div class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body">TechCorp</div>
-            <div class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body">InnovaSystems</div>
-            <div class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body">GlobalNet</div>
-            <div class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body">NexusIT</div>
-            <div class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body">QuantumServe</div>
-            <div class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body">ApexData</div>
+            @forelse($partners ?? [] as $partner)
+            <a href="{{ $partner->url ?? '#' }}" target="_blank" class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body overflow-hidden transition-opacity hover:opacity-100">
+                @if($partner->getFirstMediaUrl('default'))
+                    <img src="{{ $partner->getFirstMediaUrl('default') }}" alt="{{ $partner->name }}" class="h-full w-full object-contain p-2">
+                @else
+                    {{ $partner->name }}
+                @endif
+            </a>
+            @empty
+            <div class="w-[128px] h-[48px] bg-gray-light border border-gray-border rounded-[4px] flex items-center justify-center text-[16px] font-medium text-gray-body">No Partners</div>
+            @endforelse
         </div>
     </section>
 
@@ -216,41 +166,22 @@
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Leader 1 -->
+                @forelse($teamMembers ?? [] as $member)
                 <div class="bg-white border border-gray-border rounded-[10px] overflow-hidden">
                     <div class="h-[331px] bg-[#F3F4F6] w-full">
-                        <img src="{{ asset('assets/images/downloaded/photo_1560250097_0b93528c311a.jpg') }}" alt="Alexander Chen" class="w-full h-full object-cover">
+                        <img src="{{ $member->getFirstMediaUrl('default') ?: asset('assets/images/placeholder.jpg') }}" alt="{{ $member->name }}" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6">
-                        <h3 class="font-space font-bold text-[20px] mb-1">Alexander Chen</h3>
-                        <div class="font-medium text-[14px] text-primary mb-4">Chief Executive Officer</div>
-                        <p class="text-[14px] text-gray-body leading-[23px]">Visionary leader with 20+ years driving technology innovation in the enterprise sector.</p>
+                        <h3 class="font-space font-bold text-[20px] mb-1">{{ $member->name }}</h3>
+                        <div class="font-medium text-[14px] text-primary mb-4">{{ $member->role }}</div>
+                        <p class="text-[14px] text-gray-body leading-[23px]">{{ strip_tags($member->bio) }}</p>
                     </div>
                 </div>
-
-                <!-- Leader 2 -->
-                <div class="bg-white border border-gray-border rounded-[10px] overflow-hidden">
-                    <div class="h-[331px] bg-[#F3F4F6] w-full">
-                        <img src="{{ asset('assets/images/downloaded/photo_1573496359142_b8d87734a5a2.jpg') }}" alt="Sarah Jenkins" class="w-full h-full object-cover">
+                @empty
+                    <div class="col-span-full border border-dashed border-gray-border rounded-xl p-12 text-center text-gray-body">
+                        We are currently updating our leadership team profiles. Check back soon.
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-space font-bold text-[20px] mb-1">Sarah Jenkins</h3>
-                        <div class="font-medium text-[14px] text-primary mb-4">Chief Technology Officer</div>
-                        <p class="text-[14px] text-gray-body leading-[23px]">Former lead architect at major tech firms, spearheading our cloud and security initiatives.</p>
-                    </div>
-                </div>
-
-                <!-- Leader 3 -->
-                <div class="bg-white border border-gray-border rounded-[10px] overflow-hidden">
-                    <div class="h-[331px] bg-[#F3F4F6] w-full">
-                        <img src="{{ asset('assets/images/downloaded/photo_1519085360753_af0119f7cbe7.jpg') }}" alt="Michael Rodriguez" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-space font-bold text-[20px] mb-1">Michael Rodriguez</h3>
-                        <div class="font-medium text-[14px] text-primary mb-4">VP of Enterprise Solutions</div>
-                        <p class="text-[14px] text-gray-body leading-[23px]">Expert in aligning complex business requirements with scalable technological infrastructure.</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
 
             <!-- CTA Matrix -->

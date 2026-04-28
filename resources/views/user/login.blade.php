@@ -7,17 +7,22 @@
         <h1 class="text-[32px] font-bold mb-2">Log In</h1>
         <p class="text-gray-body mb-8">Access your account, orders, and tracking updates.</p>
 
-        <form id="login-form" class="border border-gray-border rounded-xl p-5 bg-white space-y-4">
+        <form action="{{ route('login') }}" method="POST" class="border border-gray-border rounded-xl p-5 bg-white space-y-4">
+            @csrf
+            @if($errors->any())
+                <div class="p-3 bg-red-50 text-red-600 rounded-md text-[13px] border border-red-200">
+                    {{ $errors->first() }}
+                </div>
+            @endif
             <div>
                 <label for="login-email" class="block text-[13px] font-semibold mb-1">Email</label>
-                <input id="login-email" type="email" required class="w-full h-[42px] border border-gray-border rounded-md px-3" placeholder="you@example.com">
+                <input id="login-email" name="email" type="email" required class="w-full h-[42px] border border-gray-border rounded-md px-3" placeholder="you@example.com" value="{{ old('email') }}">
             </div>
             <div>
                 <label for="login-password" class="block text-[13px] font-semibold mb-1">Password</label>
-                <input id="login-password" type="password" required class="w-full h-[42px] border border-gray-border rounded-md px-3" placeholder="••••••••">
+                <input id="login-password" name="password" type="password" required class="w-full h-[42px] border border-gray-border rounded-md px-3" placeholder="••••••••">
             </div>
             <button type="submit" class="w-full h-[44px] rounded-md bg-primary text-white font-semibold hover:bg-[#C4182A] transition-colors">Log In</button>
-            <p id="login-feedback" class="text-[13px] text-gray-body"></p>
         </form>
 
         <p class="text-[14px] text-gray-body mt-5">No account yet? <a href="{{ route('signup') }}" class="text-primary font-semibold hover:underline">Create one</a></p>
@@ -25,27 +30,7 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('assets/js/auth-service.js') }}"></script>
     <script>
-    (function () {
-        var auth = window.ATSAuthService;
-        var form = document.getElementById('login-form');
-        var feedback = document.getElementById('login-feedback');
-
-        form.addEventListener('submit', async function (event) {
-            event.preventDefault();
-            var email = document.getElementById('login-email').value.trim().toLowerCase();
-            var password = document.getElementById('login-password').value;
-
-            var result = await auth.signIn({ email: email, password: password });
-            if (!result.ok) {
-                feedback.textContent = 'Invalid email or password.';
-                return;
-            }
-
-            feedback.textContent = 'Login successful. Redirecting...';
-            setTimeout(function () { window.location.href = '{{ route('account') }}'; }, 400);
-        });
-    })();
+        // JS login mock removed, using server-side auth
     </script>
 @endpush

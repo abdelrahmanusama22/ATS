@@ -64,13 +64,13 @@
         var etaEl = document.getElementById('tracking-eta');
         var timelineEl = document.getElementById('tracking-timeline');
 
-        if (!(auth && auth.requireSession && auth.requireSession())) {
+        @if(!auth()->check())
             authRequiredEl.classList.remove('hidden');
             controlsEl.classList.add('hidden');
             viewEl.classList.add('hidden');
             notFoundEl.classList.add('hidden');
             return;
-        }
+        @endif
 
         function stepTitle(stepKey) {
             if (stepKey === 'placed') return 'Order Placed';

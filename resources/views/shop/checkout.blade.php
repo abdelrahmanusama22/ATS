@@ -29,38 +29,38 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-0.5 transition-transform">
                         <path d="M15 18L9 12L15 6"/>
                     </svg>
-                    Return to Cart
+                    {{ $contentBlocks['checkout_return_cart']->content ?? 'Return to Cart' }}
                 </a>
                 <span class="hidden md:flex items-center gap-1.5">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    Alexandria, EG
+                    {{ $globalSettings['contact_address'] ?? ($contentBlocks['header_location']->content ?? 'Alexandria, EG') }}
                 </span>
                 <span class="hidden lg:flex items-center gap-1.5">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                         <path d="m22 7-8.97 5.7a1.93 1.93 0 0 1-2.06 0L2 7"></path>
                     </svg>
-                    sales@ats.com
+                    {{ $globalSettings['contact_email'] ?? ($contentBlocks['header_email']->content ?? 'sales@ats.com') }}
                 </span>
             </div>
 
             <!-- Right Side: Account + Language + Cart -->
             <div class="flex items-center gap-4 md:gap-6">
-                <a href="{{ url('ar/checkout') }}" class="flex items-center gap-1.5 hover:text-dark transition-colors font-medium">
+                <a href="{{ route('lang.switch', app()->getLocale() == 'ar' ? 'en' : 'ar') }}" class="flex items-center gap-1.5 hover:text-dark transition-colors font-medium">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    العربية
+                    {{ app()->getLocale() == 'ar' ? 'English' : 'العربية' }}
                 </a>
-                <span class="hidden sm:flex items-center gap-1.5 hover:text-dark cursor-pointer transition-colors">My Account</span>
+                <a href="{{ route('account') }}" class="hidden sm:flex items-center gap-1.5 hover:text-dark cursor-pointer transition-colors">{{ $contentBlocks['header_my_account']->content ?? 'My Account' }}</a>
                 <a href="{{ route('cart') }}" class="flex items-center gap-1.5 text-primary font-bold">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                     </svg>
-                    Cart ( <span class="dropdown-cart-count">0</span> )
+                    {{ $contentBlocks['header_cart']->content ?? 'Cart' }} ( <span class="dropdown-cart-count">0</span> )
                 </a>
             </div>
         </div>
@@ -127,21 +127,21 @@
                     <div class="p-6 pt-[25px]" id="shipping-step-container">
                         
                         <!-- Contact Details -->
-                        <h3 class="section-header-uppercase flex items-center gap-2">Contact Details</h3>
+                        <h3 class="section-header-uppercase flex items-center gap-2">{{ $contentBlocks['checkout_contact_title']->content ?? 'Contact Details' }}</h3>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-8">
                             <div>
-                                <label for="checkout-first-name" class="form-label">First Name <span class="text-primary">*</span></label>
+                                <label for="checkout-first-name" class="form-label">{{ $contentBlocks['checkout_first_name']->content ?? 'First Name' }} <span class="text-primary">*</span></label>
                                 <input id="checkout-first-name" type="text" class="form-input" placeholder="Enter first name" required>
                             </div>
                             <div>
-                                <label for="checkout-last-name" class="form-label">Last Name <span class="text-primary">*</span></label>
+                                <label for="checkout-last-name" class="form-label">{{ $contentBlocks['checkout_last_name']->content ?? 'Last Name' }} <span class="text-primary">*</span></label>
                                 <input id="checkout-last-name" type="text" class="form-input" placeholder="Enter last name" required>
                             </div>
                         </div>
 
                         <div class="mb-2">
-                            <label for="checkout-email" class="form-label">Email Address <span class="text-primary">*</span></label>
+                            <label for="checkout-email" class="form-label">{{ $contentBlocks['checkout_email']->content ?? 'Email Address' }} <span class="text-primary">*</span></label>
                             <input id="checkout-email" type="email" class="form-input" placeholder="name@company.com" required>
                         </div>
                         <p class="text-[12px] text-text-muted mb-6 tracking-wide">Order confirmation will be sent here.</p>
@@ -443,7 +443,7 @@
 
                         <!-- CTA -->
                         <button id="placeOrderBtn" class="w-full h-[56px] text-[14px] bg-primary hover:bg-red-700 text-white font-medium rounded-[6px] transition-colors shadow-sm mb-6 mt-2">
-                            Place Order
+                            {{ $contentBlocks['checkout_place_order']->content ?? 'Place Order' }}
                         </button>
 
                         <!-- Trust text -->
@@ -484,5 +484,5 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('assets/js/orders-service.js') }}"></script>
+    <!-- Form submission logic will be handled by Blade backend -->
 @endpush

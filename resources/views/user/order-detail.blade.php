@@ -82,10 +82,10 @@
         var notFoundEl = document.getElementById('order-not-found');
         var detailEl = document.getElementById('order-detail-view');
 
-        if (!(auth && auth.requireSession && auth.requireSession())) {
+        @if(!auth()->check())
             authRequiredEl.classList.remove('hidden');
             return;
-        }
+        @endif
 
         if (!order) {
             notFoundEl.classList.remove('hidden');
