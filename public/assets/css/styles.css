@@ -1,0 +1,268 @@
+/* Base utilities */
+.text-balance {
+    text-wrap: balance;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #DEE1E6;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9095A1;
+}
+
+/* Animations */
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse animation for badges */
+@keyframes softPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(226, 29, 46, 0.4); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(226, 29, 46, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(226, 29, 46, 0); }
+}
+
+.animate-soft-pulse {
+    animation: softPulse 2s infinite;
+}
+
+/* Form inputs */
+.input-field {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #DEE1E6;
+    background-color: #FAFAFB;
+    font-size: 14px;
+    color: #171A1F;
+    transition: all 0.2s;
+}
+.input-field:focus {
+    outline: none;
+    border-color: #E21D2E;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 1px #E21D2E;
+}
+.input-field::placeholder {
+    color: #9095A1;
+    text-align: left;
+}
+[dir="rtl"] .input-field::placeholder {
+    text-align: right;
+}
+
+/* (Fancy Checkbox removed, using the custom CSS version below) */
+
+/* Price range slider styles */
+.price-slider-container {
+    height: 24px;
+    position: relative;
+}
+.price-slider-container input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 24px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+.price-slider-container input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.price-slider-container input[type=range]::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #E21D2E;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+    box-shadow: 0 2px 4px rgba(226, 29, 46, 0.3);
+    pointer-events: all;
+    position: relative;
+    z-index: 5;
+}
+.price-slider-container input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    border-radius: 2px;
+}
+.price-slider-container input[type=range]::-moz-range-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #E21D2E;
+    border: none;
+    cursor: pointer;
+    pointer-events: all;
+    box-shadow: 0 2px 4px rgba(226, 29, 46, 0.3);
+}
+/* Hide second slider track so only one track shows */
+input[id$="price-max"]::-webkit-slider-runnable-track {
+    background: transparent;
+}
+input[id$="price-max"]::-moz-range-track {
+    background: transparent;
+}
+
+/* Line Clamp */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.box-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.025);
+}
+
+.box-shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.025);
+}
+
+/* Hero section gradient background */
+.radial-red-blur {
+    background: radial-gradient(circle at 60% 50%, rgba(226, 29, 46, 0.04) 0%, rgba(255, 255, 255, 0) 55%);
+}
+
+/* Checkout Form Styles */
+.form-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #DEE1E6;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #171A1F;
+    background: #FFFFFF;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+}
+.form-input:focus {
+    border-color: #E21D2E;
+    box-shadow: 0 0 0 3px rgba(226, 29, 46, 0.08);
+}
+.form-input::placeholder {
+    color: #9095A1;
+}
+.form-input:disabled {
+    background: #F8F9FA;
+    color: #9095A1;
+    cursor: not-allowed;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #171A1F;
+    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+}
+
+.section-header-uppercase {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #565D6D;
+    margin-bottom: 16px;
+}
+
+/* Custom hover lift for service cards */
+.custom-hover-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.custom-hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* Add padding when bottom tab bar exists */
+@media (max-width: 1023px) {
+    footer {
+        padding-bottom: 80px;
+    }
+}
+
+
+
+/* Custom checkbox styles for catalog filters */
+.custom-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #DEE1E6;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.custom-checkbox.active {
+    background-color: #E03137;
+    border-color: #E03137;
+    color: white;
+}
+
+.custom-checkbox svg {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox.active svg {
+    opacity: 1;
+    transform: scale(1);
+}
