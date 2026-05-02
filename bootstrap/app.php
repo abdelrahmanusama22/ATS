@@ -12,7 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->web(append: [
+<<<<<<< Updated upstream
             \App\Http\Middleware\Localization::class,
+=======
+            \App\Http\Middleware\SetLocale::class,
+>>>>>>> Stashed changes
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

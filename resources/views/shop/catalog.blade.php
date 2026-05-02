@@ -31,13 +31,22 @@
                     <li>
                         <label class="flex items-center justify-between cursor-pointer group" data-filter-type="category">
                             <div class="flex items-center gap-3">
+<<<<<<< Updated upstream
                                 <input type="checkbox" class="sr-only filter-input" value="{{ $category->name }}">
                                 <div class="custom-checkbox">
+=======
+                                <input type="checkbox" name="categories[]" class="sr-only filter-input" value="{{ $category->id }}" {{ in_array($category->id, request('categories', [])) ? 'checked' : '' }}>
+                                <div class="custom-checkbox {{ in_array($category->id, request('categories', [])) ? 'active' : '' }}">
+>>>>>>> Stashed changes
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
                                 </div>
                                 <span class="text-[14px] text-dark group-hover:text-primary transition-colors">{{ $category->name }}</span>
                             </div>
+<<<<<<< Updated upstream
                             <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">{{ $category->products_count }}</span>
+=======
+                            <span class="bg-gray-light text-gray-body px-2 py-0.5 rounded-full text-[11px] font-medium border border-[#F3F4F6]">{{ $category->products()->count() }}</span>
+>>>>>>> Stashed changes
                         </label>
                     </li>
                     @endforeach
@@ -80,33 +89,17 @@
                     <button class="text-gray-body hover:text-dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
                 </div>
                 <ul class="space-y-3 pl-0">
+                    @foreach($brands as $brand)
                     <li>
                         <label class="flex items-center gap-3 cursor-pointer group" data-filter-type="brand">
-                            <input type="checkbox" class="sr-only filter-input" value="Cisco" checked>
-                            <div class="custom-checkbox active">
+                            <input type="checkbox" name="brands[]" class="sr-only filter-input" value="{{ $brand }}" {{ in_array($brand, request('brands', [])) ? 'checked' : '' }}>
+                            <div class="custom-checkbox {{ in_array($brand, request('brands', [])) ? 'active' : '' }}">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
                             </div>
-                            <span class="text-[14px] text-dark group-hover:text-primary transition-colors text-primary font-bold">Cisco</span>
+                            <span class="text-[14px] text-dark group-hover:text-primary transition-colors">{{ $brand }}</span>
                         </label>
                     </li>
-                    <li>
-                        <label class="flex items-center gap-3 cursor-pointer group" data-filter-type="brand">
-                            <input type="checkbox" class="sr-only filter-input" value="Dell Technologies">
-                            <div class="custom-checkbox">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                            </div>
-                            <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Dell Technologies</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="flex items-center gap-3 cursor-pointer group" data-filter-type="brand">
-                            <input type="checkbox" class="sr-only filter-input" value="Lenovo">
-                            <div class="custom-checkbox">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 7 9 18 4 13"/></svg>
-                            </div>
-                            <span class="text-[14px] text-dark group-hover:text-primary transition-colors">Lenovo</span>
-                        </label>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </aside>
@@ -119,7 +112,7 @@
                     Filters & Sort
                 </button>
                 <div class="text-[12px] text-gray-body font-medium">
-                    <strong id="mobile-results-count" class="text-dark">243</strong> Products
+                    <strong id="mobile-results-count" class="text-dark">{{ $products->total() }}</strong> Products
                 </div>
             </div>
         </div>
@@ -237,7 +230,11 @@
             <!-- Toolbar -->
             <div class="hidden lg:flex bg-white border border-gray-border rounded-lg px-4 py-3 mb-8 shadow-sm items-center justify-between gap-4">
                 <div class="flex items-center flex-wrap gap-2 text-[13px]">
+<<<<<<< Updated upstream
                     <span id="catalog-toolbar-count" class="text-gray-body font-space">Showing <strong class="text-dark">{{ $products->firstItem() ?? 0 }}-{{ $products->lastItem() ?? 0 }}</strong> of <strong class="text-dark">{{ $products->total() }}</strong> products</span>
+=======
+                    <span id="catalog-toolbar-count" class="text-gray-body font-space">Showing <strong class="text-dark">{{ $products->firstItem() }}-{{ $products->lastItem() }}</strong> of <strong class="text-dark">{{ $products->total() }}</strong> products</span>
+>>>>>>> Stashed changes
 
                     <div class="h-4 w-px bg-gray-border mx-1"></div>
                     
@@ -270,6 +267,7 @@
             <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6 mb-10">
                 @forelse($products as $product)
                 <!-- Product Card -->
+<<<<<<< Updated upstream
                 <div data-href="{{ route('product.show', $product->id) }}" data-brand="{{ $product->brand ?? 'Unknown' }}" data-price="{{ $product->price }}" data-category="{{ $product->category->name ?? 'Uncategorized' }}" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card" onclick="window.location.href=this.dataset.href">
                     @if($product->sale_price)
                     <div class="absolute top-0 left-4 bg-primary text-white text-[11px] font-bold px-2 py-1 rounded-b-md z-10 shadow-sm">{{ __('Sale') }}</div>
@@ -280,43 +278,91 @@
                     <div class="p-5 flex flex-col flex-1">
                         <div class="flex justify-between items-start mb-2">
                             <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">{{ $product->brand ?? 'ATS' }}</span>
+=======
+                <div data-href="{{ route('product', $product->id) }}" data-brand="{{ $product->brand }}" data-price="{{ $product->sale_price ?? $product->price }}" data-category="{{ $product->category->id ?? '' }}" class="bg-white border border-gray-border rounded-xl overflow-hidden hover-lift flex flex-col group relative cursor-pointer product-card">
+                    @if($product->sale_price)
+                        <div class="absolute top-0 left-4 bg-primary text-white text-[11px] font-bold px-2 py-1 rounded-b-md z-10 shadow-sm">Sale</div>
+                    @endif
+                    <div class="bg-gray-light p-6 aspect-[4/3] flex items-center justify-center relative overflow-hidden">
+                        <img src="{{ $product->hasMedia('gallery') ? $product->getFirstMediaUrl('gallery', 'webp') ?: $product->getFirstMediaUrl('gallery') : asset('assets/images/downloaded/photo_1588872657578_7efd1f1555ed.jpg') }}" alt="{{ $product->name }}" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-[11px] text-gray-body uppercase tracking-wider font-semibold">{{ $product->brand }}</span>
+>>>>>>> Stashed changes
                             <div class="flex items-center gap-1 text-[12px] text-gray-body">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" class="fill-[#F59E0B]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                                 5.0
                             </div>
                         </div>
+<<<<<<< Updated upstream
                         <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">{{ $product->title }}</h3>
+=======
+                        <h3 class="font-semibold text-[14px] leading-snug mb-4 line-clamp-2">{{ $product->name }}</h3>
+>>>>>>> Stashed changes
                         
                         <div class="mt-auto flex items-end justify-between">
                             <div>
                                 @if($product->sale_price)
+<<<<<<< Updated upstream
                                 <p class="text-[12px] text-gray-400 line-through mb-0.5">{{ number_format($product->price) }} EGP</p>
                                 <p class="font-bold text-[18px]">{{ number_format($product->sale_price) }} <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
                                 @else
                                 <p class="font-bold text-[18px]">{{ number_format($product->price) }} <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
+=======
+                                    <p class="text-[12px] text-gray-400 line-through mb-0.5">{{ number_format($product->price) }} EGP</p>
+                                    <p class="font-bold text-[18px]">{{ number_format($product->sale_price) }} <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
+                                @else
+                                    <p class="font-bold text-[18px]">{{ number_format($product->price) }} <span class="text-[12px] font-normal text-gray-body">EGP</span></p>
+>>>>>>> Stashed changes
                                 @endif
                             </div>
                             <button class="w-9 h-9 border border-gray-border rounded bg-white flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm z-20 text-dark add-to-cart-btn"
                                 data-id="{{ $product->id }}" 
+<<<<<<< Updated upstream
                                 data-name="{{ $product->title }}" 
                                 data-price="{{ $product->sale_price ?: $product->price }}" 
                                 data-image="{{ $product->getFirstMediaUrl('default') ?: asset('assets/images/placeholder.jpg') }}"
                                 onclick="event.stopPropagation();">
+=======
+                                data-name="{{ $product->name }}" 
+                                data-price="{{ $product->sale_price ?? $product->price }}" 
+                                data-image="{{ $product->getFirstMediaUrl('gallery') }}">
+>>>>>>> Stashed changes
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
                             </button>
                         </div>
                     </div>
+<<<<<<< Updated upstream
                     <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">{{ $product->stock_status ?? 'In Stock & Ready to Ship' }}</div>
                 </div>
                 @empty
                 <div class="col-span-full py-12 text-center text-gray-body">
                     {{ __('No products found matching your criteria.') }}
                 </div>
+=======
+                    <div class="border-t border-gray-border px-5 py-3 text-[11px] text-dark font-medium bg-[#FAFAFB]">
+                        @if($product->stock_status && isset($product->stock_status['status']) && $product->stock_status['status'] == 'in_stock')
+                            In Stock & Ready to Ship
+                        @else
+                            {{ $product->stock_status['status'] ?? 'Available' }}
+                        @endif
+                    </div>
+                </div>
+                @empty
+                    <div class="col-span-2 lg:col-span-3 text-center py-10">
+                        <p class="text-gray-body">No products found matching your criteria.</p>
+                    </div>
+>>>>>>> Stashed changes
                 @endforelse
             </div>
 
             <!-- Pagination -->
+<<<<<<< Updated upstream
             <div class="mt-8 flex justify-center">
+=======
+            <div class="flex items-center justify-center gap-2 border-t border-gray-border pt-10">
+>>>>>>> Stashed changes
                 {{ $products->links() }}
             </div>
         </main>

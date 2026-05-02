@@ -3,12 +3,18 @@
 @section('title', 'ATS - Enterprise IT Infrastructure')
 
 @section('content')
+<<<<<<< Updated upstream
     @forelse($sliders ?? [] as $slider)
+=======
+    @php $heroSlider = $sliders->first(); @endphp
+    @if($heroSlider)
+>>>>>>> Stashed changes
     <!-- Hero Section -->
     <section class="hidden lg:grid max-w-[1280px] mx-auto px-6 md:px-10 py-16 md:py-24 grid lg:grid-cols-[1.2fr_1fr] gap-12 items-center relative">
         <div class="bg-[radial-gradient(circle_at_20%_50%,_rgba(226,29,46,0.04)_0%,_rgba(255,255,255,0)_60%)] absolute inset-0 -z-10 hidden lg:block pointer-events-none"></div>
         <div>
             <h1 class="text-[48px] md:text-[64px] font-bold leading-[1.05] tracking-tight mb-6">
+<<<<<<< Updated upstream
                 {{ $slider->title }}
             </h1>
             <p class="text-gray-body text-[16px] leading-[1.6] mb-10 max-w-[460px]">{{ $slider->subtitle }}</p>
@@ -18,18 +24,74 @@
                     {{ $slider->button_text ?: 'Shop Now' }}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </a>
+=======
+                {!! $heroSlider->title ?? 'Enterprise-<br>Grade <br><span class="text-primary">IT<br>Infrastructure</span>' !!}
+            </h1>
+            <p class="text-gray-body text-[16px] leading-[1.6] mb-10 max-w-[460px]">{{ $heroSlider->subtitle ?? 'Empower your business with cutting-edge networking, secure storage, and scalable computing solutions. ATS delivers the technology you need to succeed.' }}</p>
+
+            <div class="flex flex-wrap items-center gap-4 mb-10">
+                <a href="{{ $heroSlider->link ?? route('catalog') }}"
+                    class="bg-primary text-white hover:bg-[#C4182A] px-7 py-3 rounded-md text-[14px] font-medium transition-colors flex items-center gap-2">{{ $heroSlider->button_text ?? 'Shop Solutions Now' }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg></a>
+                <a href="{{ route('contact') }}"
+                    class="bg-white text-dark hover:bg-gray-50 border border-gray-border px-7 py-3 rounded-md text-[14px] font-medium transition-colors">Request
+                    a Consultation</a>
+            </div>
+
+            <div class="flex items-center gap-6 text-[12px] text-gray-body font-medium">
+                <span class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="#E21D2E" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg> Next-Day Delivery</span>
+                <span class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="#E21D2E" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg> 24/7 Support</span>
+                <span class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="#E21D2E" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                    </svg> Official Warranty</span>
+>>>>>>> Stashed changes
             </div>
         </div>
 
         <div class="relative w-full aspect-[4/3] lg:aspect-[5/4] rtl-flip hover-lift">
             <div class="w-full h-full rounded-[24px] overflow-hidden bg-gray-200">
+<<<<<<< Updated upstream
                 <img src="{{ $slider->getFirstMediaUrl('default') ?: asset('assets/images/placeholder.jpg') }}" alt="{{ $slider->title }}" class="w-full h-full object-cover">
+=======
+                <img src="{{ $heroSlider->hasMedia('slider_image') ? $heroSlider->getFirstMediaUrl('slider_image', 'webp') ?: $heroSlider->getFirstMediaUrl('slider_image') : asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}" alt="Enterprise Servers"
+                    class="w-full h-full object-cover">
+            </div>
+
+            <!-- Price Badge overlapping -->
+            <div
+                class="absolute -bottom-6 -left-6 bg-white rounded-xl border border-gray-border p-4 pr-8 shadow-xl flex items-center gap-4 hover-lift">
+                <div class="w-10 h-10 bg-red-muted rounded-xl grid place-items-center text-primary shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-[10px] text-gray-body uppercase tracking-wider font-semibold mb-0.5">STARTING AT</p>
+                    <p class="font-bold text-[18px] text-dark">25,000 <span
+                            class="text-[12px] text-gray-body font-normal">EGP</span></p>
+                </div>
+>>>>>>> Stashed changes
             </div>
         </div>
     </section>
 
     <!-- MOBILE HERO (lg:hidden) -->
     <section class="block lg:hidden relative h-[320px] w-full overflow-hidden">
+<<<<<<< Updated upstream
         <img src="{{ $slider->getFirstMediaUrl('default') ?: asset('assets/images/placeholder.jpg') }}" alt="{{ $slider->title }}" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 pb-12">
             <h2 class="text-white font-space font-bold text-[30px] leading-tight mb-3">{{ $slider->title }}</h2>
@@ -43,6 +105,24 @@
         <p class="text-gray-body text-[16px] leading-[1.6] mb-10 max-w-[460px] mx-auto">{{ $contentBlocks['home_hero_description']->content ?? 'Discover enterprise-grade IT infrastructure solutions.' }}</p>
     </section>
     @endforelse
+=======
+        <img src="{{ $heroSlider->hasMedia('slider_image') ? $heroSlider->getFirstMediaUrl('slider_image', 'webp') ?: $heroSlider->getFirstMediaUrl('slider_image') : asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}" alt="Hero Mobile"
+            class="absolute inset-0 w-full h-full object-cover">
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 pb-12">
+            <div
+                class="bg-primary backdrop-blur-sm self-start min-h-[24px] px-3 py-1 rounded-full mb-3 shadow-lg flex items-center justify-center">
+                <span class="text-white text-[11px] font-bold uppercase tracking-wider">Enterprise Grade</span>
+            </div>
+            <h2 class="text-white font-space font-bold text-[30px] leading-tight mb-3">{!! strip_tags($heroSlider->title) !!}
+            </h2>
+            <p class="text-gray-200 text-[14px] leading-tight mb-6 max-w-[320px]">{{ \Illuminate\Support\Str::limit($heroSlider->subtitle, 80) }}</p>
+            <a href="{{ $heroSlider->link ?? route('catalog') }}"
+                class="bg-primary text-white text-[16px] font-bold py-3.5 rounded-[10px] text-center w-full shadow-xl active:scale-95 transition-all">{{ $heroSlider->button_text ?? 'Shop Hardware Catalog' }}</a>
+        </div>
+    </section>
+    @endif
+>>>>>>> Stashed changes
 
     <!-- MOBILE BROWSE CATEGORIES (lg:hidden) -->
     <section class="block lg:hidden bg-[#FAFAFB] py-8 px-4" id="mobileCategories">
@@ -104,31 +184,25 @@
     <!-- MOBILE FEATURED SOLUTIONS (lg:hidden) -->
     <section class="block lg:hidden py-10 px-4" id="mobileSolutions">
         <div class="flex justify-between items-center mb-6">
-            <h2 class="font-space font-bold text-[18px] text-dark">Featured Solutions</h2>
+            <h2 class="font-space font-bold text-[18px] text-dark">{!! content_block('home_solutions_title', 'Featured Solutions') !!}</h2>
             <a href="{{ route('solutions') }}" class="text-primary text-[12px] font-bold">View All</a>
         </div>
         <div class="flex overflow-x-auto gap-4 pb-4 scrollbar-hide -mx-4 px-4">
+            @foreach($services->take(3) as $service)
             <div class="min-w-[280px] bg-white border border-gray-border rounded-xl p-5 shadow-sm">
-                <div class="w-10 h-10 bg-red-muted rounded-lg flex items-center justify-center text-primary mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
-                    </svg>
+                <div class="w-10 h-10 bg-red-muted rounded-lg flex items-center justify-center text-primary mb-4 overflow-hidden">
+                    @if($service->hasMedia('service_image'))
+                        <img src="{{ $service->getFirstMediaUrl('service_image') }}" alt="" class="w-full h-full object-cover">
+                    @else
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
+                        </svg>
+                    @endif
                 </div>
-                <h3 class="font-bold text-[15px] text-dark mb-2">Network Infrastructure</h3>
-                <p class="text-[12px] text-gray-body leading-relaxed">High-performance connectivity solutions for
-                    enterprises of all sizes.</p>
+                <h3 class="font-bold text-[15px] text-dark mb-2">{{ $service->title }}</h3>
+                <p class="text-[12px] text-gray-body leading-relaxed">{!! \Illuminate\Support\Str::limit(strip_tags($service->description), 80) !!}</p>
             </div>
-            <div class="min-w-[280px] bg-white border border-gray-border rounded-xl p-5 shadow-sm">
-                <div class="w-10 h-10 bg-red-muted rounded-lg flex items-center justify-center text-primary mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
-                </div>
-                <h3 class="font-bold text-[15px] text-dark mb-2">Security & CCTV</h3>
-                <p class="text-[12px] text-gray-body leading-relaxed">End-to-end security surveillance and
-                    infrastructure protection.</p>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -137,9 +211,8 @@
         id="desktopSolutions">
         <div class="flex justify-between items-end mb-10">
             <div>
-                <h2 class="text-[24px] font-bold text-dark mb-2">Integrated Solutions</h2>
-                <p class="text-[14px] text-gray-body">Comprehensive technology solutions tailored for modern business
-                    environments.</p>
+                <h2 class="text-[24px] font-bold text-dark mb-2">{!! content_block('home_solutions_title', 'Integrated Solutions') !!}</h2>
+                <p class="text-[14px] text-gray-body">{!! content_block('home_solutions_subtitle', 'Comprehensive technology solutions tailored for modern business environments.') !!}</p>
             </div>
             <a href="{{ route('solutions') }}"
                 class="flex text-[14px] text-primary font-medium items-center gap-1 hover:underline">View all solutions
@@ -149,82 +222,26 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Card 1 -->
+            @foreach($services->take(4) as $service)
             <div
                 class="bg-white border border-gray-border rounded-lg p-6 hover:shadow-lg transition-all hover-lift flex flex-col h-full cursor-pointer">
-                <div
-                    class="w-10 h-10 rounded-full bg-[#FAFAFB] border border-[#DEE1E6] flex items-center justify-center mb-6">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#171A1F" stroke-width="1.5">
-                        <path
-                            d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
-                    </svg>
+                <div class="w-10 h-10 rounded-full bg-[#FAFAFB] border border-[#DEE1E6] flex items-center justify-center mb-6 overflow-hidden">
+                    @if($service->hasMedia('service_image'))
+                        <img src="{{ $service->getFirstMediaUrl('service_image') }}" alt="" class="w-full h-full object-cover">
+                    @else
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#171A1F" stroke-width="1.5">
+                            <path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />
+                        </svg>
+                    @endif
                 </div>
-                <h3 class="font-bold text-[16px] mb-3">Network Infrastructure</h3>
-                <p class="text-[13px] text-gray-body leading-relaxed mb-6 flex-1">Robust routing and switching for
-                    seamless connectivity.</p>
+                <h3 class="font-bold text-[16px] mb-3">{{ $service->title }}</h3>
+                <p class="text-[13px] text-gray-body leading-relaxed mb-6 flex-1">{!! \Illuminate\Support\Str::limit(strip_tags($service->description), 80) !!}</p>
                 <span class="text-[13px] text-primary font-medium flex items-center gap-1 mt-auto">Learn more <svg
                         width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg></span>
             </div>
-
-            <!-- Card 2 -->
-            <div
-                class="bg-white border border-gray-border rounded-lg p-6 hover:shadow-lg transition-all hover-lift flex flex-col h-full cursor-pointer">
-                <div
-                    class="w-10 h-10 rounded-full bg-[#FAFAFB] border border-[#DEE1E6] flex items-center justify-center mb-6">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#171A1F" stroke-width="1.5">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
-                </div>
-                <h3 class="font-bold text-[16px] mb-3">CCTV & Security</h3>
-                <p class="text-[13px] text-gray-body leading-relaxed mb-6 flex-1">Advanced surveillance and access
-                    control systems.</p>
-                <span class="text-[13px] text-primary font-medium flex items-center gap-1 mt-auto">Learn more <svg
-                        width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg></span>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-                class="bg-white border border-gray-border rounded-lg p-6 hover:shadow-lg transition-all hover-lift flex flex-col h-full cursor-pointer">
-                <div
-                    class="w-10 h-10 rounded-full bg-[#FAFAFB] border border-[#DEE1E6] flex items-center justify-center mb-6">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#171A1F" stroke-width="1.5">
-                        <rect x="2" y="2" width="20" height="8" rx="2" />
-                        <rect x="2" y="14" width="20" height="8" rx="2" />
-                        <line x1="6" y1="6" x2="6.01" y2="6" />
-                        <line x1="6" y1="18" x2="6.01" y2="18" />
-                    </svg>
-                </div>
-                <h3 class="font-bold text-[16px] mb-3">Cloud Servers</h3>
-                <p class="text-[13px] text-gray-body leading-relaxed mb-6 flex-1">Scalable and secure cloud hosting
-                    environments.</p>
-                <span class="text-[13px] text-primary font-medium flex items-center gap-1 mt-auto">Learn more <svg
-                        width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg></span>
-            </div>
-
-            <!-- Card 4 -->
-            <div
-                class="bg-white border border-gray-border rounded-lg p-6 hover:shadow-lg transition-all hover-lift flex flex-col h-full cursor-pointer">
-                <div
-                    class="w-10 h-10 rounded-full bg-[#FAFAFB] border border-[#DEE1E6] flex items-center justify-center mb-6">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#171A1F" stroke-width="1.5">
-                        <rect x="4" y="4" width="16" height="16" rx="2" />
-                        <rect x="9" y="9" width="6" height="6" />
-                    </svg>
-                </div>
-                <h3 class="font-bold text-[16px] mb-3">Smart Office</h3>
-                <p class="text-[13px] text-gray-body leading-relaxed mb-6 flex-1">Automated workspace solutions for
-                    modern teams.</p>
-                <span class="text-[13px] text-primary font-medium flex items-center gap-1 mt-auto">Learn more <svg
-                        width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg></span>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -316,10 +333,11 @@
     <!-- MOBILE TRENDING HARDWARE (lg:hidden) -->
     <section class="block lg:hidden bg-[#FAFAFB] py-10 px-4" id="mobileHardware">
         <div class="flex justify-between items-center mb-6">
-            <h2 class="font-space font-bold text-[18px] text-dark">Trending Hardware</h2>
+            <h2 class="font-space font-bold text-[18px] text-dark">{!! content_block('home_trending_hardware', 'Trending Hardware') !!}</h2>
             <a href="{{ route('catalog') }}" class="text-primary text-[12px] font-bold">View All</a>
         </div>
         <div class="grid grid-cols-2 gap-4">
+<<<<<<< Updated upstream
             @forelse($topProducts ?? [] as $product)
             <div class="bg-white border border-gray-border rounded-xl p-3 shadow-sm flex flex-col cursor-pointer" onclick="window.location='{{ route('product.show', $product->id) }}'">
                 <div class="relative bg-white aspect-square mb-3">
@@ -334,19 +352,43 @@
             @empty
                 <div class="col-span-full text-center text-gray-body py-4">Check back soon for trending hardware!</div>
             @endforelse
+=======
+            @foreach($topProducts->take(2) as $product)
+            <div class="bg-white border border-gray-border rounded-xl p-3 shadow-sm flex flex-col">
+                <div class="relative bg-white aspect-square mb-3">
+                    @if($product->stock_status && isset($product->stock_status['status']) && $product->stock_status['status'] == 'in_stock')
+                        <span class="absolute top-0 left-0 bg-primary/10 text-primary text-[9px] font-bold px-1.5 py-0.5 rounded">In Stock</span>
+                    @endif
+                    <img src="{{ $product->hasMedia('gallery') ? $product->getFirstMediaUrl('gallery', 'webp') ?: $product->getFirstMediaUrl('gallery') : asset('assets/images/downloaded/photo_1544197150_b99a580bb7a8.jpg') }}" alt="{{ $product->name }}"
+                        class="w-full h-full object-contain">
+                </div>
+                <h3 class="font-bold text-[13px] text-dark line-clamp-1 mb-2">{{ $product->name }}</h3>
+                <div class="flex items-center justify-between mt-auto">
+                    <span class="text-primary font-bold text-[14px]">{{ number_format($product->sale_price ?? $product->price) }}<span
+                            class="text-[10px] ml-0.5">EGP</span></span>
+                    <button class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white"><svg
+                            width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M12 5v14M5 12h14" />
+                        </svg></button>
+                </div>
+            </div>
+            @endforeach
+>>>>>>> Stashed changes
         </div>
     </section>
 
     <!-- Desktop Best Sellers (hidden on mobile) -->
     <section class="hidden lg:block max-w-[1280px] mx-auto px-6 md:px-10 py-16" id="desktopHardware">
         <div class="flex justify-between items-center mb-10">
-            <h2 class="text-[24px] font-bold text-dark">Best Sellers</h2>
+            <h2 class="text-[24px] font-bold text-dark">{!! content_block('home_best_sellers', 'Best Sellers') !!}</h2>
             <a href="{{ route('catalog') }}"
                 class="bg-white border border-gray-border text-dark text-[13px] font-medium px-4 py-2 rounded-md hover:bg-gray-50 transition-colors">View
                 Catalog</a>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<<<<<<< Updated upstream
             @forelse($topProducts ?? [] as $product)
             <div data-href="{{ route('product.show', $product->id) }}" onclick="window.location='{{ route('product.show', $product->id) }}'" class="bg-white border border-gray-border rounded-lg overflow-hidden flex flex-col hover-lift group relative cursor-pointer product-card">
                 <div class="relative bg-gray-light aspect-square p-6 flex items-center justify-center">
@@ -364,6 +406,37 @@
             @empty
                 <div class="col-span-full text-center text-gray-body py-10">Check back soon for trending hardware!</div>
             @endforelse
+=======
+            @foreach($topProducts as $product)
+            <div data-href="{{ route('product', $product->id) }}"
+                class="bg-white border border-gray-border rounded-lg overflow-hidden flex flex-col hover-lift group relative cursor-pointer product-card">
+                <div class="relative bg-gray-light aspect-square p-6 flex items-center justify-center">
+                    @if($product->stock_status && isset($product->stock_status['status']) && $product->stock_status['status'] == 'in_stock')
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded animate-soft-pulse z-10">Hot</span>
+                    @endif
+                    <img src="{{ $product->hasMedia('gallery') ? $product->getFirstMediaUrl('gallery', 'webp') ?: $product->getFirstMediaUrl('gallery') : asset('assets/images/downloaded/photo_1544197150_b99a580bb7a8.jpg') }}" alt="{{ $product->name }}"
+                        class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="p-5 flex flex-col flex-1">
+                    <p class="text-[12px] text-gray-body mb-1">{{ optional($product->category)->name ?? 'Category' }}</p>
+                    <h3 class="font-semibold text-[14px] text-dark leading-snug mb-4">{{ $product->name }}</h3>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-[16px]">{{ number_format($product->sale_price ?? $product->price) }}<span
+                                class="text-[12px] text-gray-body font-normal">EGP</span></span>
+                        <button
+                            class="w-9 h-9 rounded-lg bg-gray-light border border-gray-border flex items-center justify-center flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-colors add-to-cart-btn"
+                            data-id="{{ $product->id }}" data-name="{{ $product->name }}" data-price="{{ $product->sale_price ?? $product->price }}"
+                            data-image="{{ $product->getFirstMediaUrl('gallery') }}"><svg width="16"
+                                height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="21" r="1" />
+                                <circle cx="20" cy="21" r="1" />
+                                <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+>>>>>>> Stashed changes
         </div>
     </section>
 
@@ -459,8 +532,8 @@
         <section class="hidden lg:block bg-gray-light py-20 border-t border-gray-border" id="desktopTestimonials">
             <div class="max-w-[1280px] mx-auto px-6 md:px-10">
                 <div class="text-center mb-12">
-                    <h2 class="text-[24px] font-bold text-dark mb-2">Trusted by Industry Leaders</h2>
-                    <p class="text-[14px] text-gray-body">Don't just take our word for it. Here's what our clients have to say.</p>
+                    <h2 class="text-[24px] font-bold text-dark mb-2">{!! content_block('home_testimonials_title', 'Trusted by Industry Leaders') !!}</h2>
+                    <p class="text-[14px] text-gray-body">{!! content_block('home_testimonials_subtitle', 'Don\'t just take our word for it. Here\'s what our clients have to say.') !!}</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-6">
                     @forelse($testimonials->take(3) ?? [] as $testimonial)
@@ -488,8 +561,13 @@
 
     <!-- Large CTA -->
     <section class="bg-primary text-white py-24 text-center px-6">
+<<<<<<< Updated upstream
         <h2 class="text-[32px] md:text-[40px] font-bold mb-4 tracking-tight">{{ $contentBlocks['home_cta_title']->content ?? 'Ready to Upgrade Your Infrastructure?' }}</h2>
         <p class="text-[16px] text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">{{ $contentBlocks['home_cta_desc']->content ?? 'Get in touch with our specialists today for a customized quote and discover how ATS can accelerate your digital transformation.' }}</p>
+=======
+        <h2 class="text-[32px] md:text-[40px] font-bold mb-4 tracking-tight">{!! content_block('home_cta_title', 'Ready to Upgrade Your Infrastructure?') !!}</h2>
+        <p class="text-[16px] text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">{!! content_block('home_cta_subtitle', 'Get in touch with our specialists today for a customized quote and discover how ATS can accelerate your digital transformation.') !!}</p>
+>>>>>>> Stashed changes
         <div class="flex justify-center gap-4">
             <a href="{{ route('contact') }}"
                 class="bg-white text-dark hover:bg-gray-50 px-8 py-3.5 rounded text-[14px] font-medium transition-colors">Contact

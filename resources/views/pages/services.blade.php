@@ -26,7 +26,7 @@
                     </p>
                     
                     <div class="flex flex-wrap items-center gap-4">
-                        <a href="{{ route('contact') }}" class="h-[44px] px-8 bg-primary border-transparent border text-white rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors">
+                        <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="h-[44px] px-8 bg-primary border-transparent border text-white rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors">
                             Request a Consultation
                         </a>
                         <a href="#pricing" class="h-[44px] px-8 bg-white text-dark rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-gray-100 transition-colors">
@@ -80,9 +80,20 @@
                 </div>
 
                 <!-- Bottom Section -->
+<<<<<<< Updated upstream
                 <div class="bg-white border-t border-gray-border p-6 md:p-8 flex flex-wrap gap-4 items-center justify-end mt-auto">
                     <a href="{{ route('contact') }}" class="h-[40px] px-6 bg-primary text-white rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors gap-1.5 shrink-0">
                         {{ __('Request Quote') }}
+=======
+                <div class="bg-white border-t border-gray-border p-6 md:p-8 flex flex-wrap gap-4 items-center justify-between">
+                    <div>
+                        <div class="text-[14px] text-gray-body mb-1">Pricing Model</div>
+                        <div class="font-space font-bold text-[20px] text-dark">Custom Project Quote</div>
+                        <div class="text-[12px] text-gray-body mt-0.5">Based on square footage and node count.</div>
+                    </div>
+                    <a href="{{ route('contact', ['subject' => 'Quote']) }}" class="h-[40px] px-6 bg-primary text-white rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors gap-1.5 shrink-0">
+                        Request Quote
+>>>>>>> Stashed changes
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
@@ -92,7 +103,189 @@
                     <h3 class="text-[20px] font-bold text-dark mb-2">No Services Available</h3>
                     <p class="text-[15px]">We are currently updating our service offerings. Please check back soon.</p>
                 </div>
+<<<<<<< Updated upstream
             @endforelse
+=======
+
+                <!-- Top Section -->
+                <div class="bg-gray-light/30 border-b border-gray-border/50 p-6 md:p-8 relative">
+                    <div class="flex gap-4 items-center pr-28">
+                        <!-- Icon -->
+                        <div class="w-[56px] h-[56px] bg-blue-light border border-blue-primary/10 rounded-xl flex items-center justify-center text-blue-primary shrink-0">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-space font-bold text-[24px] text-dark">Managed IT Services</h3>
+                            <p class="text-[14px] text-gray-body mt-1 max-w-[360px]">Proactive monitoring and comprehensive support to keep your business operations running flawlessly.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Middle Section -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col">
+                    <div class="font-space font-medium text-[14px] leading-[20px] uppercase tracking-[0.7px] text-dark mb-3">OUR APPROACH</div>
+                    <p class="text-[14px] text-gray-body leading-[23px] mb-6">
+                        Our NOC team monitors your systems 24/7, deploying automated patches and resolving anomalies before they impact your workflow. We act as your dedicated external IT department.
+                    </p>
+                    
+                    <div class="bg-gray-light border border-gray-border/50 rounded-[10px] p-5 mt-auto">
+                        <div class="font-space font-medium text-[14px] text-dark mb-4">Key Deliverables</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">24/7 Remote Monitoring & Management</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Tier 1-3 Helpdesk Support</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Automated Patch & Update Management</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Vendor Relationship Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="bg-white border-t border-gray-border p-6 md:p-8 flex flex-wrap gap-4 items-center justify-between">
+                    <div>
+                        <div class="text-[14px] text-gray-body mb-1">Pricing Model</div>
+                        <div class="font-space font-bold text-[20px] text-dark">Starts at EGP 2,500 / mo</div>
+                        <div class="text-[12px] text-gray-body mt-0.5">Per user, billed annually.</div>
+                    </div>
+                    <a href="{{ route('contact', ['subject' => 'Quote']) }}" class="h-[40px] px-6 bg-primary text-white rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors gap-1.5 shrink-0">
+                        Request Quote
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="bg-white border border-gray-border rounded-[16px] overflow-hidden flex flex-col box-shadow custom-hover-lift hover:shadow-lg transition-all duration-300">
+                <!-- Top Section -->
+                <div class="bg-gray-light/30 border-b border-gray-border/50 p-6 md:p-8 relative">
+                    <div class="flex gap-4 items-center">
+                        <!-- Icon -->
+                        <div class="w-[56px] h-[56px] bg-blue-light border border-blue-primary/10 rounded-xl flex items-center justify-center text-blue-primary shrink-0">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-space font-bold text-[24px] text-dark">Security Consulting</h3>
+                            <p class="text-[14px] text-gray-body mt-1 max-w-[472px]">Ironclad cybersecurity strategies to protect your critical data and ensure regulatory compliance.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Middle Section -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col">
+                    <div class="font-space font-medium text-[14px] leading-[20px] uppercase tracking-[0.7px] text-dark mb-3">OUR APPROACH</div>
+                    <p class="text-[14px] text-gray-body leading-[23px] mb-6">
+                        We employ ethical hackers to conduct penetration testing and vulnerability assessments. We then design a hardened security posture aligned with ISO 27001 and local data protection laws.
+                    </p>
+                    
+                    <div class="bg-gray-light border border-gray-border/50 rounded-[10px] p-5 mt-auto">
+                        <div class="font-space font-medium text-[14px] text-dark mb-4">Key Deliverables</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Vulnerability & Penetration Testing</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Endpoint Detection & Response (EDR)</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Zero-Trust Architecture Design</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Employee Security Awareness Training</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="bg-white border-t border-gray-border p-6 md:p-8 flex flex-wrap gap-4 items-center justify-between">
+                    <div>
+                        <div class="text-[14px] text-gray-body mb-1">Pricing Model</div>
+                        <div class="font-space font-bold text-[20px] text-dark">Retainer or Project Based</div>
+                        <div class="text-[12px] text-gray-body mt-0.5">Contact us for a tailored assessment.</div>
+                    </div>
+                    <a href="{{ route('contact', ['subject' => 'Quote']) }}" class="h-[40px] px-6 bg-primary text-white rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors gap-1.5 shrink-0">
+                        Request Quote
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card 4 -->
+            <div class="bg-white border border-gray-border rounded-[16px] overflow-hidden flex flex-col box-shadow custom-hover-lift hover:shadow-lg transition-all duration-300">
+                <!-- Top Section -->
+                <div class="bg-gray-light/30 border-b border-gray-border/50 p-6 md:p-8 relative">
+                    <div class="flex gap-4 items-center">
+                        <!-- Icon -->
+                        <div class="w-[56px] h-[56px] bg-blue-light border border-blue-primary/10 rounded-xl flex items-center justify-center text-blue-primary shrink-0">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 9.36l-7.19 7.19a2 2 0 0 1-2.83-2.83l7.19-7.19a6 6 0 0 1 9.36-7.94l-3.56 3.56z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-space font-bold text-[24px] text-dark">Hardware & Repair</h3>
+                            <p class="text-[14px] text-gray-body mt-1 max-w-[455px]">Rapid diagnostics and repair for enterprise hardware, minimizing downtime for your workforce.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Middle Section -->
+                <div class="p-6 md:p-8 flex-1 flex flex-col">
+                    <div class="font-space font-medium text-[14px] leading-[20px] uppercase tracking-[0.7px] text-dark mb-3">OUR APPROACH</div>
+                    <p class="text-[14px] text-gray-body leading-[23px] mb-6">
+                        Our certified technicians provide on-site or depot-based repairs using OEM parts. We offer SLAs for guaranteed response times on critical workstation or server failures.
+                    </p>
+                    
+                    <div class="bg-gray-light border border-gray-border/50 rounded-[10px] p-5 mt-auto">
+                        <div class="font-space font-medium text-[14px] text-dark mb-4">Key Deliverables</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Server & Workstation Diagnostics</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Component Replacement (RAM, SSD, PSU)</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Secure Data Recovery Services</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E21D2E" stroke-width="2" class="mt-0.5 shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="text-[14px] text-dark/90 leading-[20px]">Fleet Lifecycle Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="bg-white border-t border-gray-border p-6 md:p-8 flex flex-wrap gap-4 items-center justify-between">
+                    <div>
+                        <div class="text-[14px] text-gray-body mb-1">Pricing Model</div>
+                        <div class="font-space font-bold text-[20px] text-dark">Starts at EGP 500</div>
+                        <div class="text-[12px] text-gray-body mt-0.5">Per diagnostic visit + parts.</div>
+                    </div>
+                    <a href="{{ route('contact', ['subject' => 'Quote']) }}" class="h-[40px] px-6 bg-primary text-white rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors gap-1.5 shrink-0">
+                        Request Quote
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+>>>>>>> Stashed changes
         </div>
 
         <!-- The ATS Methodology -->
@@ -148,7 +341,7 @@
                 <p class="text-[18px] text-gray-body leading-[28px] max-w-[533px] mb-8">
                     {{ $contentBlocks['services_cta_desc']->content ?? 'Speak directly with one of our senior solutions architects to discuss your specific requirements and get a preliminary estimate.' }}
                 </p>
-                <a href="{{ route('contact') }}" class="inline-flex h-[44px] px-8 bg-primary text-white rounded-md font-medium text-[14px] items-center justify-center hover:bg-[#C4182A] transition-colors">
+                <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="inline-flex h-[44px] px-8 bg-primary text-white rounded-md font-medium text-[14px] items-center justify-center hover:bg-[#C4182A] transition-colors">
                     Contact Sales Team
                 </a>
             </div>

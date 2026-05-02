@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'ATS - Enterprise IT Infrastructure')</title>
+    <title>@yield('title', setting('site_name', 'ATS - Enterprise IT Infrastructure'))</title>
     
     <!-- Meta Tags for SEO -->
-    <meta name="description" content="ATS delivers cutting-edge networking, secure storage, and scalable computing solutions.">
+    <meta name="description" content="@yield('meta_description', setting('site_description', 'ATS delivers cutting-edge networking, secure storage, and scalable computing solutions.'))">
     
     <!-- External Assets -->
     <script src="https://cdn.tailwindcss.com"></script>

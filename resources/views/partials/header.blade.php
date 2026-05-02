@@ -1,6 +1,58 @@
 @php
     $isArabic = app()->getLocale() == 'ar';
     $isRtl = $isArabic;
+<<<<<<< Updated upstream
+=======
+    
+    // Language strings derived from shared-components.js
+    $lang = $isArabic ? [
+        'loc' => 'الإسكندرية، مصر',
+        'email' => 'sales@ats.com',
+        'langName' => 'English',
+        'langLink' => route('lang.switch', 'en'),
+
+        'myAccount' => 'حسابي',
+        'myOrders' => 'طلباتي',
+        'cart' => 'السلة',
+        'items' => 'عناصر',
+        'checkout' => 'الدفع',
+        'viewCart' => 'عرض السلة',
+        'subtotal' => 'الإجمالي الفرعي',
+        'home' => 'الرئيسية',
+        'products' => 'المنتجات',
+        'solutions' => 'الحلول',
+        'services' => 'الخدمات',
+        'about' => 'من نحن',
+        'contact' => 'اتصل بنا',
+        'support' => 'الارتقاء بأعمالك',
+        'menu' => 'القائمة',
+        'langShort' => 'EN',
+        'quote' => 'طلب استشارة'
+    ] : [
+        'loc' => 'Alexandria, EG',
+        'email' => 'sales@ats.com',
+        'langName' => 'العربية',
+        'langLink' => route('lang.switch', 'ar'),
+
+        'myAccount' => 'My Account',
+        'myOrders' => 'My Orders',
+        'cart' => 'Cart',
+        'items' => 'Items',
+        'checkout' => 'Checkout',
+        'viewCart' => 'View Cart',
+        'subtotal' => 'Subtotal',
+        'home' => 'Home',
+        'products' => 'Shop Products',
+        'solutions' => 'Solutions',
+        'services' => 'Services',
+        'about' => 'About Us',
+        'contact' => 'Contact',
+        'support' => 'Support',
+        'menu' => 'Menu',
+        'langShort' => 'AR',
+        'quote' => 'Get a Quote'
+    ];
+>>>>>>> Stashed changes
 
     $currentPath = request()->path();
     function activeClass($paths, $currentPath) {
@@ -60,10 +112,19 @@
                     <img src="{{ asset('assets/images/logo.jpeg') }}" alt="ATS" class="h-10 rounded">
                 </a>
                 <div class="hidden lg:flex items-center gap-8 font-medium">
+<<<<<<< Updated upstream
                     @if(isset($mainMenu) && $mainMenu)
                         @foreach($mainMenu->items as $item)
                             <a href="{{ $item->url ?? route('page.show', $item->page?->slug ?? '#') }}" class="{{ activeClass([ltrim(parse_url($item->url, PHP_URL_PATH), '/')], $currentPath) }} transition-colors hover:text-primary">
                                 {{ $item->title }}
+=======
+                    @if(isset($menus['header_main']))
+                        @foreach($menus['header_main']->items as $menuItem)
+                            <a href="{{ $menuItem->url ?? ($menuItem->page_id ? url('pages/' . $menuItem->page->slug) : '#') }}" 
+                               target="{{ $menuItem->target }}"
+                               class="{{ $currentPath == trim($menuItem->url, '/') ? 'text-primary' : 'text-gray-body hover:text-dark' }} transition-colors">
+                                {!! $menuItem->icon_svg !!} {{ $menuItem->title }}
+>>>>>>> Stashed changes
                             </a>
                         @endforeach
                     @endif

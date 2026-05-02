@@ -22,7 +22,7 @@
                 </p>
                 
                 <div class="flex flex-wrap items-center gap-4">
-                    <a href="{{ route('contact') }}" class="h-[56px] px-8 bg-primary text-white rounded-md flex items-center justify-center font-medium text-[16px] hover:bg-[#C4182A] transition-colors">
+                    <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="h-[56px] px-8 bg-primary text-white rounded-md flex items-center justify-center font-medium text-[16px] hover:bg-[#C4182A] transition-colors">
                         Request Consultation
                     </a>
                     <a href="{{ route('catalog') }}" class="h-[56px] px-8 bg-gray-light border border-gray-border text-dark rounded-md flex items-center justify-center font-medium text-[16px] hover:bg-gray-100 transition-colors">
@@ -81,12 +81,21 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
                             @endif
                         </div>
+<<<<<<< Updated upstream
                         <h3 class="font-space font-medium text-[20px] tracking-[-0.5px] text-dark mb-3">{{ $service->title }}</h3>
                         <div class="text-[16px] text-gray-body leading-[26px] mb-6 flex-1 line-clamp-3">
                             {!! strip_tags($service->description) !!}
                         </div>
                         <a href="{{ route('contact') }}" class="inline-flex items-center text-[14px] font-medium text-primary hover:text-[#C4182A] group mt-auto">
                             {{ __('Explore Solution') }}
+=======
+                        <h3 class="font-space font-medium text-[20px] tracking-[-0.5px] text-dark mb-3">CCTV & Surveillance</h3>
+                        <p class="text-[16px] text-gray-body leading-[26px] mb-6 flex-1">
+                            High-definition, IP-based physical security systems with intelligent AI analytics and remote monitoring capabilities.
+                        </p>
+                        <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="inline-flex items-center text-[14px] font-medium text-primary hover:text-[#C4182A] group">
+                            Explore Solution
+>>>>>>> Stashed changes
                             <svg class="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
@@ -94,7 +103,49 @@
                         <div class="col-span-full border border-dashed border-gray-border rounded-[10px] p-12 text-center text-gray-body">
                             We are updating our capabilities. Check back soon.
                         </div>
+<<<<<<< Updated upstream
                     @endforelse
+=======
+                        <h3 class="font-space font-medium text-[20px] tracking-[-0.5px] text-dark mb-3">Enterprise Networking</h3>
+                        <p class="text-[16px] text-gray-body leading-[26px] mb-6 flex-1">
+                            Robust routing, switching, and wireless architectures designed for high availability and minimal latency.
+                        </p>
+                        <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="inline-flex items-center text-[14px] font-medium text-primary hover:text-[#C4182A] group">
+                            Explore Solution
+                            <svg class="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Smart Office -->
+                    <div class="bg-white rounded-[10px] p-6 flex flex-col box-shadow custom-hover-lift hover:shadow-lg transition-shadow border border-gray-border/30">
+                        <div class="w-[56px] h-[56px] bg-gray-50 rounded-xl flex items-center justify-center border border-gray-border mb-6 shrink-0">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#171A1F" stroke-width="1.5"><path d="M4 22V8a2 2 0 0 1 2-2h4"/><path d="M10 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M2 22h20"/><path d="M14 6h4"/><path d="M14 10h4"/><path d="M14 14h4"/><path d="M14 18h4"/></svg>
+                        </div>
+                        <h3 class="font-space font-medium text-[20px] tracking-[-0.5px] text-dark mb-3">Smart Office Automation</h3>
+                        <p class="text-[16px] text-gray-body leading-[26px] mb-6 flex-1">
+                            Integrated environmental controls, access management, and automated presentation systems for modern workspaces.
+                        </p>
+                        <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="inline-flex items-center text-[14px] font-medium text-primary hover:text-[#C4182A] group">
+                            Explore Solution
+                            <svg class="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Cybersecurity -->
+                    <div class="bg-white rounded-[10px] p-6 flex flex-col box-shadow custom-hover-lift hover:shadow-lg transition-shadow border border-gray-border/30">
+                        <div class="w-[56px] h-[56px] bg-gray-50 rounded-xl flex items-center justify-center border border-gray-border mb-6 shrink-0">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#171A1F" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="font-space font-medium text-[20px] tracking-[-0.5px] text-dark mb-3">Cybersecurity Infrastructure</h3>
+                        <p class="text-[16px] text-gray-body leading-[26px] mb-6 flex-1">
+                            Next-generation firewalls, zero-trust network access, and endpoint protection to secure your critical data.
+                        </p>
+                        <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="inline-flex items-center text-[14px] font-medium text-primary hover:text-[#C4182A] group">
+                            Explore Solution
+                            <svg class="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+>>>>>>> Stashed changes
                 </div>
             </div>
         </section>
@@ -114,7 +165,7 @@
                     </p>
                 </div>
                 <div class="shrink-0">
-                    <a href="{{ route('contact') }}" class="inline-flex h-[44px] px-6 bg-primary text-white rounded-md items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors">
+                    <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="inline-flex h-[44px] px-6 bg-primary text-white rounded-md items-center justify-center font-medium text-[14px] hover:bg-[#C4182A] transition-colors">
                         Consult an Architect
                     </a>
                 </div>
@@ -237,8 +288,15 @@
                         
                         <!-- List -->
                         <div class="flex flex-col">
+<<<<<<< Updated upstream
                             @forelse($products ?? [] as $product)
                             <a href="{{ route('product.show', $product->id) }}" class="p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors border-b border-gray-border/50 group">
+=======
+                            
+                            <!-- Item 1 -->
+                            <a href="{{ route('contact', ['subject' => 'Quote']) }}" class="p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors border-b border-gray-border/50 group">
+                                <!-- Fake Product Image -->
+>>>>>>> Stashed changes
                                 <div class="w-16 h-16 border border-gray-border rounded bg-white overflow-hidden shrink-0">
                                     <img src="{{ $product->getFirstMediaUrl('default') ?: asset('assets/images/placeholder.jpg') }}" alt="{{ $product->title }}" class="w-full h-full object-cover">
                                 </div>
@@ -249,11 +307,40 @@
                                 </div>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#565D6D" stroke-width="2" class="shrink-0 group-hover:stroke-dark transition-colors"><polyline points="9 18 15 12 9 6"/></svg>
                             </a>
+<<<<<<< Updated upstream
                             @empty
                                 <div class="p-6 text-center text-gray-body text-[13px]">
                                     Recommended infrastructure being updated.
                                 </div>
                             @endforelse
+=======
+
+                            <!-- Item 2 -->
+                            <a href="{{ route('contact', ['subject' => 'Quote']) }}" class="p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors border-b border-gray-border/50 group">
+                                <div class="w-16 h-16 border border-gray-border rounded bg-white flex items-center justify-center p-2 shrink-0">
+                                    <img src="{{ asset('assets/images/downloaded/photo_1558494949_ef010cbdcc31.jpg') }}" alt="Fortinet Firewall" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="text-[12px] text-gray-body mb-0.5">NGFW Firewall</div>
+                                    <div class="font-bold text-[14px] text-dark truncate">Fortinet FortiGate 200F</div>
+                                    <div class="font-medium text-[14px] text-dark mt-0.5">EGP 89,900</div>
+                                </div>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#565D6D" stroke-width="2" class="shrink-0 group-hover:stroke-dark transition-colors"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+
+                            <!-- Item 3 -->
+                            <a href="{{ route('contact', ['subject' => 'Quote']) }}" class="p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors border-b border-gray-border group">
+                                <div class="w-16 h-16 border border-gray-border rounded bg-white overflow-hidden shrink-0">
+                                    <img src="{{ asset('assets/images/downloaded/photo_1524661135_423995f22d0b.jpg') }}" alt="Aruba Access Point" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="text-[12px] text-gray-body mb-0.5">Wireless Infrastructure</div>
+                                    <div class="font-bold text-[14px] text-dark truncate">Aruba Wi-Fi 6 Access Point</div>
+                                    <div class="font-medium text-[14px] text-dark mt-0.5">EGP 15,200</div>
+                                </div>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#565D6D" stroke-width="2" class="shrink-0 group-hover:stroke-dark transition-colors"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+>>>>>>> Stashed changes
                         </div>
                         
                         <!-- Footer Button -->
@@ -273,7 +360,7 @@
                         <p class="text-[14px] text-white/80 leading-[20px] mb-8">
                             Our certified engineers are ready to design a network tailored to your specific physical layout and bandwidth needs.
                         </p>
-                        <a href="{{ route('contact') }}" class="w-full h-[40px] bg-white text-dark rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-gray-100 transition-colors">
+                        <a href="{{ route('contact', ['subject' => 'Consultation']) }}" class="w-full h-[40px] bg-white text-dark rounded-md flex items-center justify-center font-medium text-[14px] hover:bg-gray-100 transition-colors">
                             Contact Engineering
                         </a>
                     </div>

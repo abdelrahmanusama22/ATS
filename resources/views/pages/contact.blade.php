@@ -57,6 +57,7 @@
                 <h2 class="text-[24px] font-bold text-dark mb-2 font-space">Send a Message</h2>
                 <p class="text-[14px] text-gray-body mb-8">Fill out the form below and an ATS representative will contact you shortly.</p>
                 @if(session('success'))
+<<<<<<< Updated upstream
                     <div class="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
                         {{ session('success') }}
                     </div>
@@ -78,20 +79,49 @@
                             <label class="block text-[13px] font-bold text-dark mb-2">{{ __('Full Name') }} *</label>
                             <input type="text" name="name" placeholder="Ahmed Ali" class="input-field" required value="{{ old('name') }}">
                         </div>
+=======
+                    <div class="bg-green-50 border border-green-200 text-green-700 px-6 py-4 rounded-xl mb-8 flex items-start gap-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <div>
+                            <h3 class="font-bold text-[15px] mb-1">Message Sent!</h3>
+                            <p class="text-[14px] opacity-90">{{ content_block('contact_success_message', 'Thank you for your message. We will get back to you shortly.') }}</p>
+                        </div>
+                    </div>
+                @endif
+                
+                <form id="contactForm" method="POST" action="{{ route('contact.submit') }}" class="space-y-6">
+                    @csrf
+                    <div>
+                        <label class="block text-[13px] font-bold text-dark mb-2">Full Name *</label>
+                        <input type="text" name="name" placeholder="Ahmed Ali" class="input-field" required value="{{ old('name') }}">
+                        @error('name')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
+>>>>>>> Stashed changes
                     </div>
 
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div>
+<<<<<<< Updated upstream
                             <label class="block text-[13px] font-bold text-dark mb-2">{{ __('Email Address') }} *</label>
                             <input type="email" name="email" placeholder="ahmed@company.com" class="input-field" required value="{{ old('email') }}">
                         </div>
                         <div>
                             <label class="block text-[13px] font-bold text-dark mb-2">{{ __('Phone Number') }}</label>
                             <input type="tel" name="phone" placeholder="+20 1xxxxxxxx" class="input-field" value="{{ old('phone') }}">
+=======
+                            <label class="block text-[13px] font-bold text-dark mb-2">Email Address *</label>
+                            <input type="email" name="email" placeholder="ahmed@company.com" class="input-field" required value="{{ old('email') }}">
+                            @error('email')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
+                        </div>
+                        <div>
+                            <label class="block text-[13px] font-bold text-dark mb-2">Phone Number *</label>
+                            <input type="tel" name="phone" placeholder="+20 1xxxxxxxx" class="input-field" required value="{{ old('phone') }}">
+                            @error('phone')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
+>>>>>>> Stashed changes
                         </div>
                     </div>
 
                     <div>
+<<<<<<< Updated upstream
                         <label class="block text-[13px] font-bold text-dark mb-2">{{ __('Inquiry Type') }} *</label>
                         <select name="subject" class="input-field appearance-none bg-white font-medium" required>
                             <option value="">{{ __('Select a category') }}</option>
@@ -99,12 +129,28 @@
                             <option value="service" {{ old('subject') == 'service' ? 'selected' : '' }}>{{ __('Professional Services Consultation') }}</option>
                             <option value="support" {{ old('subject') == 'support' ? 'selected' : '' }}>{{ __('Technical Support') }}</option>
                             <option value="other" {{ old('subject') == 'other' ? 'selected' : '' }}>{{ __('Other') }}</option>
+=======
+                        <label class="block text-[13px] font-bold text-dark mb-2">Inquiry Type *</label>
+                        <select name="subject" class="input-field appearance-none bg-white font-medium" required>
+                            <option value="">Select a category</option>
+                            <option value="Hardware Quote Request" {{ old('subject', request('subject')) == 'Quote' || old('subject') == 'Hardware Quote Request' ? 'selected' : '' }}>Hardware Quote Request</option>
+                            <option value="Professional Services Consultation" {{ old('subject', request('subject')) == 'Consultation' || old('subject') == 'Professional Services Consultation' ? 'selected' : '' }}>Professional Services Consultation</option>
+                            <option value="Technical Support" {{ old('subject') == 'Technical Support' ? 'selected' : '' }}>Technical Support</option>
+                            <option value="Other" {{ old('subject') == 'Other' ? 'selected' : '' }}>Other</option>
+>>>>>>> Stashed changes
                         </select>
+                        @error('subject')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
                     </div>
 
                     <div>
+<<<<<<< Updated upstream
                         <label class="block text-[13px] font-bold text-dark mb-2">{{ __('Your Message') }} *</label>
                         <textarea name="message" rows="5" placeholder="How can we help you?" class="input-field w-full py-3 resize-none block bg-gray-50 border-gray-border focus:bg-white text-left placeholder:text-left" required>{{ old('message') }}</textarea>
+=======
+                        <label class="block text-[13px] font-bold text-dark mb-2">Your Message *</label>
+                        <textarea name="message" rows="5" placeholder="How can we help you?" class="input-field w-full py-3 resize-none block bg-gray-50 border-gray-border focus:bg-white text-left placeholder:text-left" required>{{ old('message') }}</textarea>
+                        @error('message')<span class="text-red-500 text-xs">{{ $message }}</span>@enderror
+>>>>>>> Stashed changes
                     </div>
 
                     <button type="submit" class="w-full bg-primary text-white hover:bg-[#C4182A] px-8 py-3.5 rounded-lg text-[15px] font-medium transition-colors box-shadow flex items-center justify-center gap-2">

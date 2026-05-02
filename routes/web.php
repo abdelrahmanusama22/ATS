@@ -24,6 +24,7 @@ Route::get('/lang/{locale}', function ($locale) {
     return redirect()->back();
 })->name('lang.switch');
 
+<<<<<<< Updated upstream
 /*
 |--------------------------------------------------------------------------
 | Public Site & Company
@@ -117,6 +118,46 @@ Route::post('/logout', function (Request $request) {
     $request->session()->regenerateToken();
     return redirect()->route('login');
 })->name('logout')->middleware('auth');
+=======
+// Language Switcher
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'ar'])) {
+        session()->put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
+// Home
+Route::get('/', function () {
+    $sliders = \App\Models\Slider::where('is_active', true)->orderBy('order')->get();
+    $services = \App\Models\Service::where('is_active', true)->take(4)->get();
+    $topProducts = \App\Models\Product::where('is_active', true)->orderBy('views_count', 'desc')->take(4)->get();
+    
+    return view('home', compact('sliders', 'services', 'topProducts'));
+})->name('home');
+
+// Pages
+Route::prefix('pages')->group(function () {
+    Route::view('/about', 'pages.about')->name('about');
+    Route::view('/contact', 'pages.contact')->name('contact');
+    Route::view('/404', 'pages.404')->name('404');
+    Route::view('/coming-soon', 'pages.coming-soon')->name('coming-soon');
+    Route::view('/privacy', 'pages.privacy')->name('privacy');
+    Route::view('/services', 'pages.services')->name('services');
+    Route::view('/solutions', 'pages.solutions')->name('solutions');
+    Route::view('/terms', 'pages.terms')->name('terms');
+    Route::post('/contact-submit', [\App\Http\Controllers\ContactController::class, 'store'])->name('contact.submit');
+});
+
+// Shop
+Route::prefix('shop')->group(function () {
+    Route::get('/catalog', [\App\Http\Controllers\CatalogController::class, 'index'])->name('catalog');
+    Route::get('/product/{id}', [\App\Http\Controllers\CatalogController::class, 'show'])->name('product');
+    Route::view('/cart', 'shop.cart')->name('cart');
+    Route::view('/checkout', 'shop.checkout')->name('checkout');
+    Route::view('/search', 'shop.search')->name('search');
+});
+>>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------

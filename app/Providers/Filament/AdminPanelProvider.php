@@ -9,6 +9,10 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
+<<<<<<< Updated upstream
+=======
+use Filament\SpatieLaravelTranslatablePlugin;
+>>>>>>> Stashed changes
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -17,7 +21,10 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+<<<<<<< Updated upstream
 use Filament\SpatieLaravelTranslatablePlugin;
+=======
+>>>>>>> Stashed changes
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -31,6 +38,13 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+<<<<<<< Updated upstream
+=======
+            ->plugins([
+                SpatieLaravelTranslatablePlugin::make()
+                    ->defaultLocales(['en', 'ar']),
+            ])
+>>>>>>> Stashed changes
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -39,7 +53,10 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
+<<<<<<< Updated upstream
                 Widgets\FilamentInfoWidget::class,
+=======
+>>>>>>> Stashed changes
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -54,10 +71,14 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+<<<<<<< Updated upstream
             ])
             ->plugin(
                 SpatieLaravelTranslatablePlugin::make()
                     ->defaultLocales(['en', 'ar'])
             );
+=======
+            ]);
+>>>>>>> Stashed changes
     }
 }
